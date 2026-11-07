@@ -1,3 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 *.pdf binary
+promo_lab/demo_run/* -text linguist-generated
+promo_lab/demo_run/shortlist.csv binary

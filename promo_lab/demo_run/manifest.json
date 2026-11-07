@@ -1,0 +1,46 @@
+{
+  "created_at": "2026-11-06T14:01:59.302075+00:00",
+  "mode": "openai",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "partial": false,
+  "config": {
+    "minimum_seconds": 20,
+    "maximum_seconds": 60,
+    "shortlist_percent": 1,
+    "duplicate_iou_threshold": 0.5,
+    "gates": {
+      "hook": 2,
+      "comprehension": 2,
+      "cliffhanger": 2
+    },
+    "allow_partial": false,
+    "public_input": true
+  },
+  "source_hashes": {
+    "E001": "e88cc52e8511cd7e6a9d32e770abcfe58ab817600a9615e7369f0bfd2e2beaab"
+  },
+  "summary": {
+    "episodes": 1,
+    "events": 20,
+    "candidates": 92,
+    "valid_candidates": 92,
+    "distinct_candidates": 7,
+    "eligible_distinct": 1,
+    "target_shortlist": 1,
+    "shortlisted": 1,
+    "source_minutes": 1.33,
+    "seconds": 43.41,
+    "ai_calls": 2,
+    "ai_assessed": 1,
+    "parse_warnings": 0,
+    "ai_assessed_episodes": 1
+  },
+  "artifacts": {
+    "result.json": "4e58552ea008bc8d130d92cf52fb7a019fa90b97fc69b54090a0de77a577d703",
+    "raw_candidates.json": "811d84ed800993bf50a02708cfa0147455bf35bf1226c59ecdfdea02661bfb6d",
+    "raw_model_calls.json": "71ab21529ea07318d2332b6103742e13f344e59482b7a2e508fd2ddd3784063e",
+    "evaluation.json": "749073ad7dbe47babea3433c6c84011e671cef7ddd6f159a7126b038fd2195e8",
+    "episode_coverage.json": "700f0cdd7c68182e0563b5304bddc80a933fbf018bb50981566b16f18dfeacb5",
+    "shortlist.csv": "6651b8d4eefc72ba21092a8b0fbef55bc6e4bc6cc725e31bcafa7d05bd1df663"
+  }
+}

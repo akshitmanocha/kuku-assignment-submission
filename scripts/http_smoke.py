@@ -22,8 +22,20 @@ def request(path, value=None, headers=None):
 
 
 checks = []
-assert request("/api/status")[0] == 200
-checks.append("status")
+code, raw = request("/api/status")
+assert code == 200
+demo = next(run for run in json.loads(raw)["runs"] if run.get("built_in"))
+demo_path = f"/api/runs/{demo['id']}"
+code, raw = request(demo_path)
+result = json.loads(raw)
+assert code == 200 and result["config"]["public_input"]
+assert result["summary"]["ai_assessed"] == 1
+assert {call["purpose"] for call in result["model_journal"]} == {
+    "propose_E001",
+    "newcomer_critique",
+}
+assert request(demo_path + "?artifact=bundle.zip")[0] == 200
+checks.extend(["status", "saved public AI example"])
 for path in ["/.env", "/README.md", "/../.env", "/api/runs/not-a-real-run"]:
     assert request(path)[0] == 404, path
 checks.append("private files not served")

@@ -7,16 +7,16 @@ Local verification completed on **7 November 2026**. These checks concern the wo
 | Python unit tests | 74 passed, covering parsing, source validation, provider mocks, real-event contracts and simulator isolation |
 | Ruff lint and formatting | Passed for application, scripts and tests |
 | Frontend syntax and Prettier | Passed for JavaScript, HTML and CSS |
-| Isolated HTTP checks | Passed: private-file denial, host/origin checks, malformed inputs, fresh upload, polling and exports |
-| Docker launch | Image built and passed the HTTP checks as a non-root user. Replacing the container preserved analyses and a test study in the same volume. |
-| Editorial browser flow | Passed: source inspection, filters, coverage, quality, history, new analyses, upload, download and mobile layout |
+| Isolated HTTP checks | Passed: saved public AI run, private-file denial, host/origin checks, malformed inputs, fresh upload, polling and exports |
+| Docker launch | The image opened the public AI example and ran the HTTP checks as a non-root user. A fresh local analysis persisted across a restart with the same volume. |
+| Editorial browser flow | Passed: saved AI critique, three-stage navigation, source inspection, quality checks, paste and file input, inline input errors, export and mobile layout |
 | Reading browser flow | Passed: consent, randomized cards, reload censoring, continuation, offline retry, test export exclusion, shared-device reset and deletion |
 | Synthetic browser flow | Passed for all three scenarios, provenance, model snapshots, downloads, persistence, mobile layout and real-data isolation |
 | Fresh source archive | Extracted and ran unit tests, source hygiene, public demo and independent audit without credentials |
 | Development installation | Editable installation and pinned development dependency installation passed in a new temporary virtual environment |
 | Solution PDF | Exactly two pages; both pages rendered and visually inspected |
 
-The isolated HTTP/browser runner uses a temporary server, free port and database. Its studies and generated responses do not enter the live experiment database. Headless browser testing injects a focus-loss signal to verify the reading-time guard, because headless Chrome can report every tab focused; this is a software test, not attention evidence.
+The isolated HTTP/browser runner uses a temporary server, free port and database. Its studies and generated responses stay in that workspace. Headless browser testing injects a focus-loss signal to verify the reading-time guard, because headless Chrome can report every tab focused. These checks verify the software.
 
 ## Saved full-pack evidence
 

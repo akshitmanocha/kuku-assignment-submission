@@ -20,9 +20,11 @@ await fs.mkdir("tmp/screenshots", { recursive: true });
 try {
   await page.goto(base, { waitUntil: "networkidle" });
   await page.locator(".candidate-card").first().waitFor();
+  await page.locator('[data-view="history"]').click();
+  await page.locator('[data-open-run="public-ai-example"]').click();
+  await page.getByText("SAVED AI EXAMPLE · ORIGINAL FICTION").waitFor();
   await page.screenshot({
     path: "tmp/screenshots/desktop.png",
-    fullPage: true,
   });
   assert.ok((await page.locator(".source-event").count()) > 0);
   await page.locator('[data-source-filter="dialogue"]').click();
@@ -45,7 +47,15 @@ try {
   await page.locator('[data-view="history"]').click();
   await page.locator("[data-open-run]").first().waitFor();
   await page.locator('[data-view="method"]').click();
-  await page.getByText("01 / Read the source, preserve the evidence").waitFor();
+  await page
+    .getByRole("heading", { name: "1. LLM candidate retrieval" })
+    .waitFor();
+  await page.locator('[data-stage-view="experiments"]').click();
+  await page.locator("#create-study").waitFor();
+  await page.locator('[data-stage-view="simulations"]').click();
+  await page.locator("#simulation-form").waitFor();
+  await page.locator('[data-stage-view="discover"]').click();
+  await page.locator(".candidate-card").first().waitFor();
   await page.locator("#new-run").click();
   await page.locator("#source").selectOption("sample");
   await page.locator("#provider").selectOption("offline");
@@ -76,6 +86,10 @@ try {
   await page.locator("#new-run").click();
   await page.locator("#source").selectOption("paste");
   await page.locator("#provider").selectOption("offline");
+  await page.locator("#screenplay-text").fill("   ");
+  await page.locator("#start-run").click();
+  await page.locator("#run-form-error").waitFor();
+  assert.ok(await page.locator("#run-dialog").isVisible());
   const screenplay = await fs.readFile(
     "promo_lab/examples/episode-001.txt",
     "utf8",
@@ -105,6 +119,8 @@ try {
     JSON.stringify({
       passed: true,
       checks: [
+        "saved public AI example",
+        "three-stage navigation",
         "source inspection",
         "filters",
         "episode coverage",

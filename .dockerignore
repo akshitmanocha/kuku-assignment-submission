@@ -11,3 +11,7 @@ promo_lab/web/**
 !promo_lab/examples/
 promo_lab/examples/**
 !promo_lab/examples/episode-001.txt
+!promo_lab/demo_run/
+promo_lab/demo_run/**
+!promo_lab/demo_run/*.json
+!promo_lab/demo_run/shortlist.csv

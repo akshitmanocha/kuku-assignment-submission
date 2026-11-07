@@ -30,21 +30,6 @@ def run(browser=False):
             str(work),
             str(port),
         ]
-        if browser:
-            subprocess.run(
-                [
-                    sys.executable,
-                    "-m",
-                    "promo_lab",
-                    "run",
-                    str(ROOT / "promo_lab/examples"),
-                    "--output",
-                    str(work / "output/runs/public-demo"),
-                ],
-                cwd=ROOT,
-                env=env,
-                check=True,
-            )
         with (work / "server.log").open("w+") as log:
             process = subprocess.Popen(command, cwd=ROOT, env=env, stdout=log, stderr=log)
             try:

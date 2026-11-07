@@ -1,0 +1,38 @@
+{
+  "baseline": {
+    "count": 1,
+    "valid_count": 1,
+    "valid_rate": 1.0,
+    "dialogue_cut_count": 0,
+    "dialogue_cut_rate": 0.0,
+    "mean_editorial_score": 61.1
+  },
+  "all_generated": {
+    "count": 92,
+    "valid_count": 92,
+    "valid_rate": 1.0,
+    "dialogue_cut_count": 0,
+    "dialogue_cut_rate": 0.0,
+    "mean_editorial_score": 49.5
+  },
+  "valid_distinct": {
+    "count": 7,
+    "valid_count": 7,
+    "valid_rate": 1.0,
+    "dialogue_cut_count": 0,
+    "dialogue_cut_rate": 0.0,
+    "mean_editorial_score": 60.3
+  },
+  "shortlist": {
+    "count": 1,
+    "valid_count": 1,
+    "valid_rate": 1.0,
+    "dialogue_cut_count": 0,
+    "dialogue_cut_rate": 0.0,
+    "mean_editorial_score": 100.0
+  },
+  "human_acceptance": null,
+  "audience_continuation": null,
+  "interpretation": "Technical validity is measured against source timestamps. Rubric scores are uncalibrated editorial proxies, not independent quality labels. The fixed-window baseline and filtered shortlist have different selection criteria; validity differences do not establish audience lift.",
+  "failures": []
+}

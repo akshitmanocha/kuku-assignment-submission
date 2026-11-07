@@ -8,7 +8,7 @@ Explain the goal: find promising 20–60-second source intervals, with an immedi
 
 ## 0:20–0:45: run on a new input
 
-Show New analysis, original demo/upload options and the configured provider without exposing credentials. Run the small public demo using offline mode or the available AI provider. Explain that model configuration is swappable. Do not present a saved run as a newly executed live inference.
+Show the saved AI example on the fictional episode. Point out the label that identifies it as a saved run. Open **New analysis** and show the paste option. Run the fictional episode with the offline engine if you want to demonstrate a fresh analysis without API credentials.
 
 ## 0:45–1:20: inspect a recommendation
 

@@ -291,6 +291,51 @@ button {
   color: var(--muted);
   line-height: 1.6;
 }
+.pipeline-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: -12px 0 20px;
+}
+.pipeline-step {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 12px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.pipeline-step > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #eef0ea;
+  font-size: 11px;
+}
+.pipeline-step:hover,
+.pipeline-step[aria-current="step"] {
+  background: #eef4e4;
+  border-color: #b5c89c;
+}
+.pipeline-step[aria-current="step"] > span {
+  background: var(--accent);
+}
+@media (max-width: 590px) {
+  .pipeline-nav {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+  .pipeline-step {
+    padding: 6px 9px;
+  }
+}
 main {
   padding: 30px 36px 42px;
   flex: 1;

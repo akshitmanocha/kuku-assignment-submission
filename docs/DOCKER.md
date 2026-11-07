@@ -10,7 +10,7 @@ docker run --rm --init \
   promo-lab
 ```
 
-Open `http://127.0.0.1:8765`. The image uses Python 3.12 and includes the original fictional screenplay and its offline analysis. A named volume stores analyses, reading records and synthetic runs between containers. The build context is limited to application source and the public example. [Docker port publishing](https://docs.docker.com/engine/network/port-publishing/) · [Docker build context](https://docs.docker.com/build/concepts/context/#dockerignore-files)
+Open `http://127.0.0.1:8765`. The image uses Python 3.12 and opens a saved Nemotron analysis of the original fictional screenplay without an API call. A named volume stores your analyses, reading records and synthetic runs between containers. The build context is limited to application source and the public example. [Docker port publishing](https://docs.docker.com/engine/network/port-publishing/) · [Docker build context](https://docs.docker.com/build/concepts/context/#dockerignore-files)
 
 ## Run with model settings
 

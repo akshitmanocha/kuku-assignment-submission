@@ -22,6 +22,9 @@ from .experiments import ExperimentStore
 from .experiment_content import cards_from_run
 from .simulations import SimulationStore
 
+DEMO_RUN_ID = "public-ai-example"
+DEMO_RUN = Path(__file__).parent / "demo_run"
+
 
 class Store:
     def __init__(self, root: Path):
@@ -41,12 +44,15 @@ class Store:
 
     def list_runs(self):
         runs = []
-        for path in self.paths()[:30]:
+        directories = [(p.parent.name, p.parent, False) for p in self.paths()[:30]]
+        directories.append((DEMO_RUN_ID, DEMO_RUN, True))
+        for run_id, directory, built_in in directories:
             try:
-                manifest = json.loads((path.parent / "manifest.json").read_text())
+                manifest = json.loads((directory / "manifest.json").read_text())
                 runs.append(
                     {
-                        "id": path.parent.name,
+                        "id": run_id,
+                        "built_in": built_in,
                         "created_at": manifest["created_at"],
                         "mode": manifest["mode"],
                         "summary": manifest["summary"],
@@ -59,7 +65,7 @@ class Store:
     def run_path(self, run_id: str) -> Path:
         if not re.fullmatch(r"[A-Za-z0-9_-]{1,80}", run_id):
             raise ValueError("Invalid run ID")
-        path = self.runs / run_id
+        path = DEMO_RUN if run_id == DEMO_RUN_ID else self.runs / run_id
         if not (path / "result.json").is_file():
             raise FileNotFoundError("Run not found")
         return path
@@ -279,10 +285,11 @@ def serve_app(root: Path, port: int, *, host: str = "127.0.0.1") -> None:
                         with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as archive:
                             for name in sorted(allowed):
                                 archive.write(directory / name, name)
+                        scope = "public" if run_id == DEMO_RUN_ID else "private"
                         return self.respond(
                             buf.getvalue(),
                             "application/zip",
-                            filename=f"promo-lab-{run_id}-private.zip",
+                            filename=f"promo-lab-{run_id}-{scope}.zip",
                         )
                     if artifact not in allowed:
                         raise ValueError("Unknown export")

@@ -33,6 +33,8 @@ The generator verifies the two-page limit before replacing the previous PDF. Ins
 
 The [public PDF](promo-lab-solution.pdf) keeps the aggregate results and omits private script excerpts and clip details. To rebuild that version, add `--public --output docs/promo-lab-solution.pdf` to the PDF command above.
 
+Use the [Promo Lab repository](https://github.com/akshitmanocha/promo-lab) as the prototype link. It opens a saved Nemotron run on original fiction after local launch. For the required raw outputs, use the unedited files in `output/runs/full-pack-qwen/` or the `raw-outputs/` folder in the private bundle. Share those files only through the assignment's authorized submission channel.
+
 | Deliverable | Intended handling |
 | --- | --- |
 | `output/pdf/promo-lab-solution.pdf` | Two-page private solution document |

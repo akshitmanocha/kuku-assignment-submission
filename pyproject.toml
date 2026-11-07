@@ -22,7 +22,7 @@ build-backend = "setuptools.build_meta"
 include = ["promo_lab*"]
 
 [tool.setuptools.package-data]
-promo_lab = ["web/*", "examples/*"]
+promo_lab = ["web/*", "examples/*", "demo_run/*"]
 
 [tool.ruff]
 target-version = "py310"

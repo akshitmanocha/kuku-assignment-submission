@@ -1,0 +1,14 @@
+[
+  {
+    "episode_id": "E001",
+    "episode_number": 1,
+    "events": 20,
+    "candidates": 92,
+    "valid": 92,
+    "eligible": 1,
+    "ai_assessed": 1,
+    "warnings": 0,
+    "status": "processed",
+    "shortlisted": 1
+  }
+]

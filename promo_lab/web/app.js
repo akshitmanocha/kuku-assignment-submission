@@ -44,32 +44,32 @@ const state = {
 };
 const titles = {
   simulations: [
-    "Watch the feedback loop.",
-    "Synthetic responses → response model → exploration and exploitation. A mechanics demonstration.",
+    "Simulate online learning",
+    "Train on generated responses and compare daily promo selection with a random control.",
   ],
   experiments: [
-    "Let the audience decide.",
-    "A randomized reading pilot. Real interactions, ready for later model training.",
+    "Collect reading feedback",
+    "Run an internal survey with a randomized text feed and export observed reading outcomes.",
   ],
   discover: [
-    "Find the moment.",
-    "The hook. The tension. The cut that leaves them wanting more.",
+    "Discover promos",
+    "Review 20–60-second cuts and trace each one back to the script.",
   ],
   episodes: [
     "Every episode. Every beat.",
     "A complete source inventory, with processing coverage and timing concerns.",
   ],
   evaluation: [
-    "Inspect the evidence.",
-    "Technical checks are measured. Audience performance is still an open question.",
+    "Check the recommended cuts",
+    "Compare the shortlist with a simple 30-second rule and inspect rejected cuts.",
   ],
   history: [
     "Keep the whole trail.",
     "Revisit analyses and export their original results.",
   ],
   method: [
-    "A shortlist you can question.",
-    "Source-grounded discovery, transparent checks, and honest limits.",
+    "How the three stages fit together",
+    "Start with a screenplay shortlist, collect reading feedback, then test a learning policy.",
   ],
 };
 
@@ -165,6 +165,21 @@ function render() {
   const [title, subtitle] = titles[state.view];
   $("#page-title").textContent = title;
   $("#page-subtitle").textContent = subtitle;
+  const editorial = ["discover", "episodes", "evaluation"].includes(state.view);
+  const stage = editorial ? "discover" : state.view;
+  $("#page-eyebrow").textContent =
+    {
+      discover: "STAGE 1 / CANDIDATE RETRIEVAL",
+      experiments: "STAGE 2 / INTERNAL SURVEY",
+      simulations: "STAGE 3 / EPSILON-GREEDY SIMULATION",
+    }[stage] || "PROMO LAB WORKSPACE";
+  document.querySelectorAll("[data-stage-view]").forEach((button) => {
+    if (button.dataset.stageView === stage) {
+      button.setAttribute("aria-current", "step");
+    } else {
+      button.removeAttribute("aria-current");
+    }
+  });
   $("#breadcrumb").textContent = {
     discover: "Discover promos",
     episodes: "Episode library",
@@ -180,10 +195,9 @@ function render() {
       b.classList.toggle("active", b.dataset.view === state.view),
     );
   $("#nav-count").textContent = r?.summary.shortlisted || 0;
-  const experimentView = ["experiments", "simulations"].includes(state.view);
-  $("#stats").hidden = experimentView;
-  $("#run-context").hidden = experimentView;
-  $("#export-bundle").hidden = experimentView;
+  $("#stats").hidden = !editorial;
+  $("#run-context").hidden = !editorial;
+  $("#export-bundle").hidden = !editorial;
   if (state.view === "experiments")
     return window.PromoExperiments.render($("#view-content"));
   if (state.view === "simulations")
@@ -223,8 +237,11 @@ function render() {
         )
         .join("")
     : "";
+  const builtIn = state.status?.runs.some(
+    (run) => run.id === state.runId && run.built_in,
+  );
   $("#run-context").innerHTML = r
-    ? `<span><span class="badge ${r.mode === "offline" ? "badge-amber" : "badge-purple"}">${r.mode === "offline" ? "OFFLINE BASELINE" : r.partial ? "AI ASSISTED · PARTIAL" : "AI ASSISTED"}</span> &nbsp; ${esc(r.model || "Deterministic editorial rules")} · ${r.summary.ai_calls} logical model calls (${r.model_journal.filter((call) => call.cached).length} cached) · ${r.summary.seconds.toFixed(1)}s this run</span><span>No audience data · scores are editorial estimates</span>`
+    ? `<span><span class="badge ${r.mode === "offline" ? "badge-amber" : "badge-purple"}">${builtIn ? "SAVED AI EXAMPLE · ORIGINAL FICTION" : r.mode === "offline" ? "OFFLINE BASELINE" : r.partial ? "AI ASSISTED · PARTIAL" : "AI ASSISTED"}</span> &nbsp; ${esc(r.model || "Deterministic editorial rules")}${builtIn ? " · opens without an API call" : ` · ${r.summary.ai_calls} logical model calls (${r.model_journal.filter((call) => call.cached).length} cached) · ${r.summary.seconds.toFixed(1)}s this run`}</span><span>No audience data · scores are editorial estimates</span>`
     : "";
   if (state.view === "method") return renderMethod();
   if (state.view === "history") return renderHistory();
@@ -444,7 +461,7 @@ function renderEpisodes() {
   document.querySelectorAll("[data-open-episode]").forEach(
     (b) =>
       (b.onclick = () => {
-        state.view = "discover";
+        selectView("discover");
         state.scope = "valid";
         state.episode = b.dataset.openEpisode;
         state.search = "";
@@ -456,7 +473,7 @@ function renderEvaluation() {
   const r = state.result,
     e = r.evaluation;
   $("#view-content").innerHTML =
-    `<div class="section-bar"><div><h2>Measured checks, explicit limits</h2><p>Baseline: a roughly 30-second interval from each episode’s first spoken line, without boundary refinement.</p></div><button class="button" id="evaluation-export">↓ Report JSON</button></div><div class="report-grid"><div class="panel"><h3>Source & duration validity</h3><div class="metric-comparison"><div><div class="value">${percent(e.baseline.valid_rate)}</div><div class="label">Fixed-window baseline · n=${e.baseline.count}</div></div><div><div class="value highlight">${percent(e.shortlist.valid_rate)}</div><div class="label">Shortlist · n=${e.shortlist.count}</div></div></div><p>Checks source bounds, referenced boundary IDs, duration, chronology, and complete dialogue.</p></div><div class="panel"><h3>Dialogue cut-through rate</h3><div class="metric-comparison"><div><div class="value">${percent(e.baseline.dialogue_cut_rate)}</div><div class="label">Fixed-window baseline</div></div><div><div class="value highlight">${percent(e.shortlist.dialogue_cut_rate)}</div><div class="label">Shortlist</div></div></div><p>Camera endpoints can fall inside spoken lines. The pipeline checks overlapping dialogue before accepting a cut.</p></div><div class="panel"><h3>Audience performance</h3><div class="metric-comparison"><div><div class="value">—</div><div class="label">Qualified continuation</div></div><div><div class="value">—</div><div class="label">Human acceptance</div></div></div><p>This editorial analysis contains no audience measurements. Inspect Reading experiment for real text interactions and Synthetic demo for generated feedback. Neither editorial scores nor synthetic rewards establish customer lift.</p></div><div class="panel"><h3>Coverage & model use</h3><p>${r.summary.episodes} episodes · ${number(r.summary.events)} source entries<br>${number(r.summary.valid_candidates)} valid intervals · ${number(r.summary.distinct_candidates)} distinct<br>${r.summary.ai_assessed} AI-assessed candidates · ${r.summary.ai_calls} logical calls<br>${r.summary.parse_warnings} timing flags · ${r.rejected_proposals.length} malformed AI proposals</p></div></div><div class="alert note">${esc(e.interpretation)}</div><div class="panel"><h3>Observed failure examples</h3><p>These are actual rejected cuts from this run, not invented customer outcomes.</p>${
+    `<div class="section-bar"><div><h2>Measured checks, explicit limits</h2><p>Baseline: a roughly 30-second interval from each episode’s first spoken line, without boundary refinement.</p></div><button class="button" id="evaluation-export">↓ Report JSON</button></div><div class="report-grid"><div class="panel"><h3>Clips that passed the script checks</h3><div class="metric-comparison"><div><div class="value">${percent(e.baseline.valid_rate)}</div><div class="label">30-second rule · ${e.baseline.valid_count} of ${e.baseline.count}</div></div><div><div class="value highlight">${percent(e.shortlist.valid_rate)}</div><div class="label">Recommendations · ${e.shortlist.valid_count} of ${e.shortlist.count}</div></div></div><p>Checks source bounds, referenced boundary IDs, duration, chronology, and complete dialogue.</p></div><div class="panel"><h3>Clips that cut a line short</h3><div class="metric-comparison"><div><div class="value">${percent(e.baseline.dialogue_cut_rate)}</div><div class="label">30-second rule · ${e.baseline.dialogue_cut_count} of ${e.baseline.count}</div></div><div><div class="value highlight">${percent(e.shortlist.dialogue_cut_rate)}</div><div class="label">Recommendations · ${e.shortlist.dialogue_cut_count} of ${e.shortlist.count}</div></div></div><p>Camera endpoints can fall inside spoken lines. The pipeline checks overlapping dialogue before accepting a cut.</p></div><div class="panel"><h3>Audience performance</h3><div class="metric-comparison"><div><div class="value">—</div><div class="label">Qualified continuation</div></div><div><div class="value">—</div><div class="label">Human acceptance</div></div></div><p>This editorial analysis contains no audience measurements. Inspect Reading experiment for real text interactions and Synthetic demo for generated feedback. Neither editorial scores nor synthetic rewards establish customer lift.</p></div><div class="panel"><h3>Coverage & model use</h3><p>${r.summary.episodes} episodes · ${number(r.summary.events)} source entries<br>${number(r.summary.valid_candidates)} valid intervals · ${number(r.summary.distinct_candidates)} distinct<br>${r.summary.ai_assessed} AI-assessed candidates · ${r.summary.ai_calls} logical calls<br>${r.summary.parse_warnings} timing flags · ${r.rejected_proposals.length} malformed AI proposals</p></div></div><div class="alert note">${esc(e.interpretation)}</div><div class="panel"><h3>Why cuts were rejected</h3><p>These examples come from this analysis.</p>${
       e.failures
         .slice(0, 6)
         .map(
@@ -471,11 +488,11 @@ function renderEvaluation() {
 function renderHistory() {
   const runs = state.status?.runs || [];
   $("#view-content").innerHTML =
-    `<div class="section-bar"><div><h2>Saved analyses</h2><p>Private raw outputs remain in this workspace. Exports include source text.</p></div></div>${runs.length ? `<div class="table-wrap"><table><thead><tr><th>Run</th><th>Engine</th><th>Episodes</th><th>Shortlist</th><th>Created</th><th></th></tr></thead><tbody>${runs.map((r) => `<tr><td class="run-name">${esc(r.id)}</td><td>${esc(r.mode)}</td><td>${r.summary.episodes}</td><td>${r.summary.shortlisted}</td><td>${esc(new Date(r.created_at).toLocaleString())}</td><td><button class="link-button" data-open-run="${esc(r.id)}">Open analysis ↗</button></td></tr>`).join("")}</tbody></table></div>` : '<div class="empty-state"><h2>No analyses yet.</h2><p>Start with the original demo or your screenplay pack.</p></div>'}`;
+    `<div class="section-bar"><div><h2>Saved analyses</h2><p>Private raw outputs remain in this workspace. Exports include source text.</p></div></div>${runs.length ? `<div class="table-wrap"><table><thead><tr><th>Run</th><th>Engine</th><th>Episodes</th><th>Shortlist</th><th>Created</th><th></th></tr></thead><tbody>${runs.map((r) => `<tr><td class="run-name">${r.built_in ? "Original fiction · saved AI example" : esc(r.id)}</td><td>${r.built_in ? "Nemotron" : esc(r.mode)}</td><td>${r.summary.episodes}</td><td>${r.summary.shortlisted}</td><td>${esc(new Date(r.created_at).toLocaleString())}</td><td><button class="link-button" data-open-run="${esc(r.id)}">Open analysis ↗</button></td></tr>`).join("")}</tbody></table></div>` : '<div class="empty-state"><h2>No analyses yet.</h2><p>Start with the original demo or your screenplay pack.</p></div>'}`;
   document.querySelectorAll("[data-open-run]").forEach(
     (b) =>
       (b.onclick = async () => {
-        state.view = "discover";
+        selectView("discover");
         try {
           await loadRun(b.dataset.openRun);
         } catch (e) {
@@ -485,12 +502,32 @@ function renderHistory() {
   );
 }
 function renderMethod() {
-  $("#view-content").innerHTML =
-    `<div class="panel"><h3>01 / Read the source, preserve the evidence</h3><p>Episodes are parsed into overlapping dialogue, action, camera, and sound intervals. Timestamps use integer milliseconds. Each proposal points back to original source events; episode summaries never stand in for what a newcomer sees.</p></div><div class="panel"><h3>02 / Search broadly, then inspect the cut</h3><p>Search plausible event boundaries for 20–60-second intervals. With an AI provider, propose up to three additional promos per episode and independently critique one finalist using candidate-only content. Assemblies use at most three chronological segments. Unreviewed AI-mode candidates cannot enter the AI shortlist.</p></div><div class="panel"><h3>03 / Validate, score, and group variants</h3><p>Code validates source IDs, duration, complete dialogue and chronology. Six rubric dimensions use anchored 0–3 estimates: hook, comprehension, stakes, progression, cliffhanger, and cut quality. Equal-weight totals are editorial scores, not probabilities. Hook, comprehension, and cliffhanger must each reach 2. Overlapping cuts are grouped with a 0.5 temporal IoU heuristic; semantic duplicates can remain.</p></div><div class="panel"><h3>04 / Keep uncertainty visible</h3><p>Offline mode uses disclosed keyword rules. AI mode uses a separately prompted newcomer assessment, not independent ground truth. Neither measures actual audience engagement. Camera performance, acting, precise word timing, and edit continuity require footage and human inspection. Raw prompts, model outputs, rejected proposals, and source hashes are exportable.</p></div><div class="panel"><h3>05 / Collect real reading feedback</h3><p>The Reading experiment inserts a random target promo among ordinary text stories. With consent, it records foreground reading time, skips and continuation choices. Repeated views remain separate; interrupted outcomes can remain unknown. Reading is a proxy, not video engagement.</p></div><div class="panel"><h3>06 / Demonstrate the learning loop</h3><p>The separate Synthetic demo fits a candidate-level response model, holds out validation data and compares daily epsilon-greedy updates with random control. Every generated row is labeled synthetic. A real-audience model, text embeddings, production deployment, encoder fine-tuning and contrastive learning remain future work.</p></div>`;
+  $("#view-content").innerHTML = `
+    <div class="panel">
+      <h3>1. LLM candidate retrieval</h3>
+      <p>Start with a timestamped screenplay. The app searches possible 20–60-second cuts and can ask a configured LLM for additional candidates. A second prompt reads a finalist's dialogue and action as a newcomer. It scores six editorial qualities, including the opening hook, clarity and cliffhanger.</p>
+      <p>Code checks the source, duration and dialogue boundaries. It groups overlapping cuts and targets the top 1% of distinct valid clips, subject to the score thresholds. The saved AI example shows what this looks like on the bundled fictional episode.</p>
+    </div>
+    <div class="panel">
+      <h3>2. Internal survey in a simulated feed</h3>
+      <p>Ask participants to browse six filler stories and one randomly assigned promo. With consent, the app logs real interactions and exports one row per observed exposure. A qualified continuation requires a click, at least 15 active seconds and at least 75% of the continuation text visible.</p>
+      <p>The reading outcomes are labels for a future audience model. The text feed measures reading behavior, and interrupted visits can leave an outcome unknown.</p>
+    </div>
+    <div class="panel">
+      <h3>3. Epsilon-greedy selection and online training</h3>
+      <p>The prototype uses generated responses to fit a Beta–Bernoulli estimate of qualified continuation for each promo. It starts with random traffic, then gradually shifts to choosing the current best promo 80% of the time and a random promo 20% of the time.</p>
+      <p>The simulation updates estimates daily, gives older feedback less weight and compares the policy with a separate random control. The live pilot would start with internal survey labels and use real customer outcomes.</p>
+    </div>`;
 }
 
+function runFormError(message) {
+  const notice = $("#run-form-error");
+  notice.textContent = message;
+  notice.hidden = !message;
+}
 function openDialog() {
   error("");
+  runFormError("");
   $("#run-dialog").showModal();
 }
 $("#new-run").onclick = openDialog;
@@ -505,15 +542,14 @@ $("#files").onchange = () =>
     .map((f) => f.name)
     .join(", "));
 $("#export-bundle").onclick = () => download("bundle.zip");
-document.querySelectorAll("[data-view]").forEach(
+function selectView(view) {
+  state.view = view;
+  history.replaceState(null, "", view === "discover" ? "/" : `/#${view}`);
+}
+document.querySelectorAll("[data-view], [data-stage-view]").forEach(
   (b) =>
     (b.onclick = async () => {
-      state.view = b.dataset.view;
-      history.replaceState(
-        null,
-        "",
-        state.view === "discover" ? "/" : `/#${state.view}`,
-      );
+      selectView(b.dataset.view || b.dataset.stageView);
       if (state.view === "history")
         try {
           await refreshStatus();
@@ -528,6 +564,7 @@ $("#run-form").onsubmit = async (event) => {
   const button = $("#start-run");
   button.disabled = true;
   error("");
+  runFormError("");
   try {
     const source = $("#source").value;
     const body = {
@@ -577,8 +614,7 @@ $("#run-form").onsubmit = async (event) => {
     $("#run-dialog").close();
     pollJob(job_id);
   } catch (e) {
-    error(e.message);
-    $("#run-dialog").close();
+    runFormError(e.message);
   } finally {
     button.disabled = false;
   }
@@ -595,7 +631,7 @@ async function pollJob(id) {
     if (job.status === "complete") {
       $("#run-strip").hidden = true;
       $("#new-run").disabled = false;
-      state.view = "discover";
+      selectView("discover");
       await refreshStatus();
       await loadRun(job.run_id);
       toast("Analysis complete. Inspect the source before editing.");
@@ -614,7 +650,7 @@ async function pollJob(id) {
   try {
     await refreshStatus();
     const preferred =
-      state.status.runs.find((r) => r.mode !== "offline") ||
+      state.status.runs.find((r) => !r.built_in && r.mode !== "offline") ||
       state.status.runs[0];
     if (preferred) await loadRun(preferred.id);
     else render();

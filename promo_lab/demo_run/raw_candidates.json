@@ -1,0 +1,5940 @@
+[
+  {
+    "id": "P-52853d8b4f05",
+    "origin": "llm_proposal",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 0,
+        "end_ms": 35000,
+        "start": "00:00.00",
+        "end": "00:35.00",
+        "start_event_id": "E001-0001",
+        "end_event_id": "E001-0010"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 35000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {
+      "title": "The Signature Beneath the Fold",
+      "hook": "Mara slams a property transfer signed by their supposedly incapacitated mother onto Eli's desk, accusing him of selling their home behind her back.",
+      "cliffhanger": "As Mara confronts Eli about a second hidden signature and a blacked-out witness name, her phone rings with a call from her mother's number — and Eli lunges to stop her from answering.",
+      "why": "Opens with an explosive accusation and physical evidence, escalates through layered revelations (fake medical bills, forged documents, a mysterious witness), and ends on a visceral cliffhanger: a call from a mother who should be hospitalized, and a brother desperate to silence it. The 35-second runtime packs a complete dramatic arc with a hook that demands resolution."
+    },
+    "duration_seconds": 35.0,
+    "assessment": {
+      "scores": {
+        "hook": 3,
+        "comprehension": 3,
+        "stakes": 3,
+        "progression": 3,
+        "cliffhanger": 3,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0001",
+      "end_event_id": "E001-0009",
+      "hook": "\"You sold our house?\"",
+      "cliffhanger": "\"If you uncover that name, Mother will disappear.\"",
+      "unanswered_question": "Who is the blacked-out witness, and why does Eli claim uncovering their name will cause their mother to disappear?",
+      "why": "The 35-second interval delivers a dense, escalating conflict: a surprise property transfer, contradictory financial claims, a hidden second signature with a redacted witness, and a direct threat tied to the mother's safety, culminating in a live call from the mother's phone as Eli intervenes. Every beat introduces new information that rewrites the previous beat, keeping comprehension high while stakes and tension rise sharply.",
+      "risks": [
+        "Heavy exposition front-loaded into a short window may overwhelm a first-time viewer if visual pacing lags.",
+        "Eli's threat (\"Mother will disappear\") is ambiguous—literal abduction, institutionalization, or metaphorical loss—creating potential confusion about the nature of the stakes.",
+        "The final action (Eli reaching for the phone) overlaps the cut; if the next scene doesn't resolve the call immediately, the cliffhanger could feel like a cheat."
+      ],
+      "evidence_event_ids": [
+        "E001-0001",
+        "E001-0002",
+        "E001-0004",
+        "E001-0005",
+        "E001-0006",
+        "E001-0007",
+        "E001-0008",
+        "E001-0009",
+        "E001-0010"
+      ],
+      "method": "llm_newcomer_critique",
+      "speaker_count": 2
+    },
+    "score": 100.0,
+    "eligible": true,
+    "status": "shortlisted",
+    "duplicate_of": null,
+    "rules_assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0001",
+      "end_event_id": "E001-0009",
+      "hook": "\"You sold our house?\"",
+      "cliffhanger": "\"If you uncover that name, Mother will disappear.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0001",
+        "E001-0009"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "rank": 1,
+    "shortlisted": true,
+    "title": "The Signature Beneath the Fold"
+  },
+  {
+    "id": "P-a53ac55be756",
+    "origin": "llm_proposal",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 35000,
+        "end_ms": 80000,
+        "start": "00:35.00",
+        "end": "01:20.00",
+        "start_event_id": "E001-0011",
+        "end_event_id": "E001-0020"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 45000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {
+      "title": "What's Behind the Locked Cabinet",
+      "hook": "A stranger's voice on Mara's mother's phone warns: 'Ask your brother what he really sold' — then Eli slides a key under a locked cabinet, admitting their mother made him promise Mara would never open it.",
+      "cliffhanger": "Mara takes the key and unlocks the cabinet. From inside comes a single sharp knock. She demands: 'Who is in there?'",
+      "why": "Picks up at the moment the conspiracy deepens — a stranger on the line, a brother's confession, a mother's enforced silence. The 42-second segment builds claustrophobic tension through a locked room, a hidden key, and a cabinet that answers back, ending on an image that cannot be ignored."
+    },
+    "duration_seconds": 45.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0011",
+      "end_event_id": "E001-0020",
+      "hook": "\"Why are you afraid of her calling?\"",
+      "cliffhanger": "\"Who is in there?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0011",
+        "E001-0020"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 66.7,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": null,
+    "shortlisted": false,
+    "title": "What's Behind the Locked Cabinet"
+  },
+  {
+    "id": "P-1d56b2e97fc9",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 31000,
+        "end_ms": 80000,
+        "start": "00:31.00",
+        "end": "01:20.00",
+        "start_event_id": "E001-0010",
+        "end_event_id": "E001-0020"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 49000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 49.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0010",
+      "end_event_id": "E001-0020",
+      "hook": "Mara's phone lights up with a call from her mother's number. Eli reaches for it.",
+      "cliffhanger": "\"Who is in there?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0010",
+        "E001-0020"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 61.1,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Mara's phone lights up with a call from her mother's number. Eli reaches for it."
+  },
+  {
+    "id": "P-2d14032ddc20",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 0,
+        "end_ms": 31000,
+        "start": "00:00.00",
+        "end": "00:31.00",
+        "start_event_id": "E001-0001",
+        "end_event_id": "E001-0009"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 31000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 31.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0001",
+      "end_event_id": "E001-0009",
+      "hook": "\"You sold our house?\"",
+      "cliffhanger": "\"If you uncover that name, Mother will disappear.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0001",
+        "E001-0009"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 61.1,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "You sold our house?"
+  },
+  {
+    "id": "P-42e630bdb12a",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 35000,
+        "end_ms": 56000,
+        "start": "00:35.00",
+        "end": "00:56.00",
+        "start_event_id": "E001-0011",
+        "end_event_id": "E001-0015"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 21000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 21.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0011",
+      "end_event_id": "E001-0015",
+      "hook": "\"Why are you afraid of her calling?\"",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0011",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 61.1,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": null,
+    "shortlisted": false,
+    "title": "Why are you afraid of her calling?"
+  },
+  {
+    "id": "P-480a422bd316",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 0,
+        "end_ms": 43000,
+        "start": "00:00.00",
+        "end": "00:43.00",
+        "start_event_id": "E001-0001",
+        "end_event_id": "E001-0012"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 43000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 43.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0001",
+      "end_event_id": "E001-0012",
+      "hook": "\"You sold our house?\"",
+      "cliffhanger": "\"Do not answer that phone.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0001",
+        "E001-0012"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 61.1,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "You sold our house?"
+  },
+  {
+    "id": "P-4c399fea01c2",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 53000,
+        "end_ms": 80000,
+        "start": "00:53.00",
+        "end": "01:20.00",
+        "start_event_id": "E001-0015",
+        "end_event_id": "E001-0020"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 27000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 27.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0015",
+      "end_event_id": "E001-0020",
+      "hook": "\"Where is my mother?\"",
+      "cliffhanger": "\"Who is in there?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0015",
+        "E001-0020"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 61.1,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Where is my mother?"
+  },
+  {
+    "id": "P-6389ac0ceb07",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 0,
+        "end_ms": 38000,
+        "start": "00:00.00",
+        "end": "00:38.00",
+        "start_event_id": "E001-0001",
+        "end_event_id": "E001-0011"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 38000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 38.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0001",
+      "end_event_id": "E001-0011",
+      "hook": "\"You sold our house?\"",
+      "cliffhanger": "\"Why are you afraid of her calling?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0001",
+        "E001-0011"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 61.1,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "You sold our house?"
+  },
+  {
+    "id": "P-69fd1402b1b2",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 0,
+        "end_ms": 60000,
+        "start": "00:00.00",
+        "end": "01:00.00",
+        "start_event_id": "E001-0001",
+        "end_event_id": "E001-0016"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 60000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 60.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0001",
+      "end_event_id": "E001-0015",
+      "hook": "\"You sold our house?\"",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0001",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 61.1,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "You sold our house?"
+  },
+  {
+    "id": "P-774df48a1257",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 0,
+        "end_ms": 56000,
+        "start": "00:00.00",
+        "end": "00:56.00",
+        "start_event_id": "E001-0001",
+        "end_event_id": "E001-0015"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 56000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 56.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0001",
+      "end_event_id": "E001-0015",
+      "hook": "\"You sold our house?\"",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0001",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 61.1,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "You sold our house?"
+  },
+  {
+    "id": "P-87d229ac1162",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 35000,
+        "end_ms": 60000,
+        "start": "00:35.00",
+        "end": "01:00.00",
+        "start_event_id": "E001-0011",
+        "end_event_id": "E001-0016"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 25000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 25.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0011",
+      "end_event_id": "E001-0015",
+      "hook": "\"Why are you afraid of her calling?\"",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0011",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 61.1,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Why are you afraid of her calling?"
+  },
+  {
+    "id": "P-cd3c7c738198",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 43000,
+        "end_ms": 80000,
+        "start": "00:43.00",
+        "end": "01:20.00",
+        "start_event_id": "E001-0013",
+        "end_event_id": "E001-0020"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 37000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 37.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0013",
+      "end_event_id": "E001-0020",
+      "hook": "Mara locks the office door and answers on speaker. A stranger is breathing on the other end.",
+      "cliffhanger": "\"Who is in there?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0013",
+        "E001-0020"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 61.1,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Mara locks the office door and answers on speaker. A stranger is breathing on the other end."
+  },
+  {
+    "id": "P-ea642b9618d7",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 0,
+        "end_ms": 26000,
+        "start": "00:00.00",
+        "end": "00:26.00",
+        "start_event_id": "E001-0001",
+        "end_event_id": "E001-0008"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 26000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 26.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0001",
+      "end_event_id": "E001-0008",
+      "hook": "\"You sold our house?\"",
+      "cliffhanger": "\"Who is the witness? Why is the name blacked out?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0001",
+        "E001-0008"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 61.1,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "You sold our house?"
+  },
+  {
+    "id": "P-02d32f245413",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 31000,
+        "end_ms": 60000,
+        "start": "00:31.00",
+        "end": "01:00.00",
+        "start_event_id": "E001-0010",
+        "end_event_id": "E001-0016"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 29000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 29.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0010",
+      "end_event_id": "E001-0015",
+      "hook": "Mara's phone lights up with a call from her mother's number. Eli reaches for it.",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0010",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 55.6,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Mara's phone lights up with a call from her mother's number. Eli reaches for it."
+  },
+  {
+    "id": "P-1c576a9dd99c",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 19000,
+        "end_ms": 60000,
+        "start": "00:19.00",
+        "end": "01:00.00",
+        "start_event_id": "E001-0007",
+        "end_event_id": "E001-0016"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 41000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 41.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0007",
+      "end_event_id": "E001-0015",
+      "hook": "Mara turns the document over. A second signature is hidden beneath a folded corner.",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0007",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 55.6,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-42e630bdb12a",
+    "shortlisted": false,
+    "title": "Mara turns the document over. A second signature is hidden beneath a folded corner."
+  },
+  {
+    "id": "P-2962e27a161e",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 35000,
+        "end_ms": 65000,
+        "start": "00:35.00",
+        "end": "01:05.00",
+        "start_event_id": "E001-0011",
+        "end_event_id": "E001-0017"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 30000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 30.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0011",
+      "end_event_id": "E001-0017",
+      "hook": "\"Why are you afraid of her calling?\"",
+      "cliffhanger": "\"She made me promise you would never open it.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0011",
+        "E001-0017"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 55.6,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Why are you afraid of her calling?"
+  },
+  {
+    "id": "P-2bbb0b9d4d29",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 35000,
+        "end_ms": 75000,
+        "start": "00:35.00",
+        "end": "01:15.00",
+        "start_event_id": "E001-0011",
+        "end_event_id": "E001-0019"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 40000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 40.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0011",
+      "end_event_id": "E001-0018",
+      "hook": "\"Why are you afraid of her calling?\"",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0011",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 55.6,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Why are you afraid of her calling?"
+  },
+  {
+    "id": "P-7e9a6d134ad1",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 39000,
+        "end_ms": 80000,
+        "start": "00:39.00",
+        "end": "01:20.00",
+        "start_event_id": "E001-0012",
+        "end_event_id": "E001-0020"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 41000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 41.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0012",
+      "end_event_id": "E001-0020",
+      "hook": "\"Do not answer that phone.\"",
+      "cliffhanger": "\"Who is in there?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0012",
+        "E001-0020"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 55.6,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Do not answer that phone."
+  },
+  {
+    "id": "P-9b2b14a5da0b",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 27000,
+        "end_ms": 80000,
+        "start": "00:27.00",
+        "end": "01:20.00",
+        "start_event_id": "E001-0009",
+        "end_event_id": "E001-0020"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 53000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 53.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0009",
+      "end_event_id": "E001-0020",
+      "hook": "\"If you uncover that name, Mother will disappear.\"",
+      "cliffhanger": "\"Who is in there?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0009",
+        "E001-0020"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 55.6,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "If you uncover that name, Mother will disappear."
+  },
+  {
+    "id": "P-9cfc40f951a0",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 31000,
+        "end_ms": 56000,
+        "start": "00:31.00",
+        "end": "00:56.00",
+        "start_event_id": "E001-0010",
+        "end_event_id": "E001-0015"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 25000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 25.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0010",
+      "end_event_id": "E001-0015",
+      "hook": "Mara's phone lights up with a call from her mother's number. Eli reaches for it.",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0010",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 55.6,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-42e630bdb12a",
+    "shortlisted": false,
+    "title": "Mara's phone lights up with a call from her mother's number. Eli reaches for it."
+  },
+  {
+    "id": "P-b77b29a46397",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 35000,
+        "end_ms": 69000,
+        "start": "00:35.00",
+        "end": "01:09.00",
+        "start_event_id": "E001-0011",
+        "end_event_id": "E001-0018"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 34000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 34.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0011",
+      "end_event_id": "E001-0018",
+      "hook": "\"Why are you afraid of her calling?\"",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0011",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 55.6,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Why are you afraid of her calling?"
+  },
+  {
+    "id": "P-c81f1aa02aac",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 19000,
+        "end_ms": 56000,
+        "start": "00:19.00",
+        "end": "00:56.00",
+        "start_event_id": "E001-0007",
+        "end_event_id": "E001-0015"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 37000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 37.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0007",
+      "end_event_id": "E001-0015",
+      "hook": "Mara turns the document over. A second signature is hidden beneath a folded corner.",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0007",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 55.6,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-42e630bdb12a",
+    "shortlisted": false,
+    "title": "Mara turns the document over. A second signature is hidden beneath a folded corner."
+  },
+  {
+    "id": "P-daf2913acccb",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 22000,
+        "end_ms": 80000,
+        "start": "00:22.00",
+        "end": "01:20.00",
+        "start_event_id": "E001-0008",
+        "end_event_id": "E001-0020"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 58000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 58.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0008",
+      "end_event_id": "E001-0020",
+      "hook": "\"Who is the witness? Why is the name blacked out?\"",
+      "cliffhanger": "\"Who is in there?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0008",
+        "E001-0020"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 55.6,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Who is the witness? Why is the name blacked out?"
+  },
+  {
+    "id": "P-e14ebe9db457",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 19000,
+        "end_ms": 43000,
+        "start": "00:19.00",
+        "end": "00:43.00",
+        "start_event_id": "E001-0007",
+        "end_event_id": "E001-0012"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 24000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 24.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0007",
+      "end_event_id": "E001-0012",
+      "hook": "Mara turns the document over. A second signature is hidden beneath a folded corner.",
+      "cliffhanger": "\"Do not answer that phone.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0007",
+        "E001-0012"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 55.6,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": null,
+    "shortlisted": false,
+    "title": "Mara turns the document over. A second signature is hidden beneath a folded corner."
+  },
+  {
+    "id": "P-07f8e5caa75e",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 31000,
+        "end_ms": 69000,
+        "start": "00:31.00",
+        "end": "01:09.00",
+        "start_event_id": "E001-0010",
+        "end_event_id": "E001-0018"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 38000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 38.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0010",
+      "end_event_id": "E001-0018",
+      "hook": "Mara's phone lights up with a call from her mother's number. Eli reaches for it.",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0010",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Mara's phone lights up with a call from her mother's number. Eli reaches for it."
+  },
+  {
+    "id": "P-1bac74fabe6a",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 0,
+        "end_ms": 22000,
+        "start": "00:00.00",
+        "end": "00:22.00",
+        "start_event_id": "E001-0001",
+        "end_event_id": "E001-0007"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 22000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 22.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0001",
+      "end_event_id": "E001-0006",
+      "hook": "\"You sold our house?\"",
+      "cliffhanger": "\"Then the hospital is lying to you.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0001",
+        "E001-0006"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "You sold our house?"
+  },
+  {
+    "id": "P-1bc69e42bbb1",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 15000,
+        "end_ms": 60000,
+        "start": "00:15.00",
+        "end": "01:00.00",
+        "start_event_id": "E001-0006",
+        "end_event_id": "E001-0016"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 45000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 45.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0006",
+      "end_event_id": "E001-0015",
+      "hook": "\"Then the hospital is lying to you.\"",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0006",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-e14ebe9db457",
+    "shortlisted": false,
+    "title": "Then the hospital is lying to you."
+  },
+  {
+    "id": "P-2c8fe0b004f6",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 15000,
+        "end_ms": 43000,
+        "start": "00:15.00",
+        "end": "00:43.00",
+        "start_event_id": "E001-0006",
+        "end_event_id": "E001-0012"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 28000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 28.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0006",
+      "end_event_id": "E001-0012",
+      "hook": "\"Then the hospital is lying to you.\"",
+      "cliffhanger": "\"Do not answer that phone.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0006",
+        "E001-0012"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-e14ebe9db457",
+    "shortlisted": false,
+    "title": "Then the hospital is lying to you."
+  },
+  {
+    "id": "P-328e15be606f",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 43000,
+        "end_ms": 69000,
+        "start": "00:43.00",
+        "end": "01:09.00",
+        "start_event_id": "E001-0013",
+        "end_event_id": "E001-0018"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 26000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 26.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0013",
+      "end_event_id": "E001-0018",
+      "hook": "Mara locks the office door and answers on speaker. A stranger is breathing on the other end.",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0013",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Mara locks the office door and answers on speaker. A stranger is breathing on the other end."
+  },
+  {
+    "id": "P-3311213ceb15",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 4000,
+        "end_ms": 60000,
+        "start": "00:04.00",
+        "end": "01:00.00",
+        "start_event_id": "E001-0004",
+        "end_event_id": "E001-0016"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 56000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 56.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0004",
+      "end_event_id": "E001-0015",
+      "hook": "\"Someone had to pay for Mother's treatment.\"",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0004",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "Someone had to pay for Mother's treatment."
+  },
+  {
+    "id": "P-3616e114c2c8",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 15000,
+        "end_ms": 56000,
+        "start": "00:15.00",
+        "end": "00:56.00",
+        "start_event_id": "E001-0006",
+        "end_event_id": "E001-0015"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 41000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 41.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0006",
+      "end_event_id": "E001-0015",
+      "hook": "\"Then the hospital is lying to you.\"",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0006",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-42e630bdb12a",
+    "shortlisted": false,
+    "title": "Then the hospital is lying to you."
+  },
+  {
+    "id": "P-3880145da8c8",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 9000,
+        "end_ms": 38000,
+        "start": "00:09.00",
+        "end": "00:38.00",
+        "start_event_id": "E001-0005",
+        "end_event_id": "E001-0011"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 29000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 29.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0005",
+      "end_event_id": "E001-0011",
+      "hook": "\"The hospital says her treatment was paid for last month.\"",
+      "cliffhanger": "\"Why are you afraid of her calling?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0005",
+        "E001-0011"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "The hospital says her treatment was paid for last month."
+  },
+  {
+    "id": "P-47efb9a27974",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 31000,
+        "end_ms": 65000,
+        "start": "00:31.00",
+        "end": "01:05.00",
+        "start_event_id": "E001-0010",
+        "end_event_id": "E001-0017"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 34000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 34.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0010",
+      "end_event_id": "E001-0017",
+      "hook": "Mara's phone lights up with a call from her mother's number. Eli reaches for it.",
+      "cliffhanger": "\"She made me promise you would never open it.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0010",
+        "E001-0017"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Mara's phone lights up with a call from her mother's number. Eli reaches for it."
+  },
+  {
+    "id": "P-4b80a828073d",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 22000,
+        "end_ms": 56000,
+        "start": "00:22.00",
+        "end": "00:56.00",
+        "start_event_id": "E001-0008",
+        "end_event_id": "E001-0015"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 34000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 34.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0008",
+      "end_event_id": "E001-0015",
+      "hook": "\"Who is the witness? Why is the name blacked out?\"",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0008",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-42e630bdb12a",
+    "shortlisted": false,
+    "title": "Who is the witness? Why is the name blacked out?"
+  },
+  {
+    "id": "P-5112596ff779",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 19000,
+        "end_ms": 65000,
+        "start": "00:19.00",
+        "end": "01:05.00",
+        "start_event_id": "E001-0007",
+        "end_event_id": "E001-0017"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 46000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 46.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0007",
+      "end_event_id": "E001-0017",
+      "hook": "Mara turns the document over. A second signature is hidden beneath a folded corner.",
+      "cliffhanger": "\"She made me promise you would never open it.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0007",
+        "E001-0017"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-e14ebe9db457",
+    "shortlisted": false,
+    "title": "Mara turns the document over. A second signature is hidden beneath a folded corner."
+  },
+  {
+    "id": "P-60c2467f19b5",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 4000,
+        "end_ms": 43000,
+        "start": "00:04.00",
+        "end": "00:43.00",
+        "start_event_id": "E001-0004",
+        "end_event_id": "E001-0012"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 39000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 39.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0004",
+      "end_event_id": "E001-0012",
+      "hook": "\"Someone had to pay for Mother's treatment.\"",
+      "cliffhanger": "\"Do not answer that phone.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0004",
+        "E001-0012"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "Someone had to pay for Mother's treatment."
+  },
+  {
+    "id": "P-6240d98fa266",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 31000,
+        "end_ms": 75000,
+        "start": "00:31.00",
+        "end": "01:15.00",
+        "start_event_id": "E001-0010",
+        "end_event_id": "E001-0019"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 44000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 44.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0010",
+      "end_event_id": "E001-0018",
+      "hook": "Mara's phone lights up with a call from her mother's number. Eli reaches for it.",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0010",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Mara's phone lights up with a call from her mother's number. Eli reaches for it."
+  },
+  {
+    "id": "P-6dc80b1f6e96",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 0,
+        "end_ms": 47000,
+        "start": "00:00.00",
+        "end": "00:47.00",
+        "start_event_id": "E001-0001",
+        "end_event_id": "E001-0013"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 47000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 47.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0001",
+      "end_event_id": "E001-0012",
+      "hook": "\"You sold our house?\"",
+      "cliffhanger": "\"Do not answer that phone.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0001",
+        "E001-0012"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "You sold our house?"
+  },
+  {
+    "id": "P-6faef5479dff",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 43000,
+        "end_ms": 75000,
+        "start": "00:43.00",
+        "end": "01:15.00",
+        "start_event_id": "E001-0013",
+        "end_event_id": "E001-0019"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 32000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 32.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0013",
+      "end_event_id": "E001-0018",
+      "hook": "Mara locks the office door and answers on speaker. A stranger is breathing on the other end.",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0013",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Mara locks the office door and answers on speaker. A stranger is breathing on the other end."
+  },
+  {
+    "id": "P-7b07c079a7a7",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 56000,
+        "end_ms": 80000,
+        "start": "00:56.00",
+        "end": "01:20.00",
+        "start_event_id": "E001-0016",
+        "end_event_id": "E001-0020"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 24000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 24.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 1,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0016",
+      "end_event_id": "E001-0020",
+      "hook": "Eli pulls a key from his pocket and slides it under a locked cabinet.",
+      "cliffhanger": "\"Who is in there?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange"
+      ],
+      "evidence_event_ids": [
+        "E001-0016",
+        "E001-0020"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Eli pulls a key from his pocket and slides it under a locked cabinet."
+  },
+  {
+    "id": "P-81572a38f5de",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 4000,
+        "end_ms": 56000,
+        "start": "00:04.00",
+        "end": "00:56.00",
+        "start_event_id": "E001-0004",
+        "end_event_id": "E001-0015"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 52000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 52.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0004",
+      "end_event_id": "E001-0015",
+      "hook": "\"Someone had to pay for Mother's treatment.\"",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0004",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "Someone had to pay for Mother's treatment."
+  },
+  {
+    "id": "P-844909215497",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 48000,
+        "end_ms": 80000,
+        "start": "00:48.00",
+        "end": "01:20.00",
+        "start_event_id": "E001-0014",
+        "end_event_id": "E001-0020"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 32000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 32.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0014",
+      "end_event_id": "E001-0020",
+      "hook": "\"Ask your brother what he really sold.\"",
+      "cliffhanger": "\"Who is in there?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0014",
+        "E001-0020"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Ask your brother what he really sold."
+  },
+  {
+    "id": "P-92bc54b60b98",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 4000,
+        "end_ms": 31000,
+        "start": "00:04.00",
+        "end": "00:31.00",
+        "start_event_id": "E001-0004",
+        "end_event_id": "E001-0009"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 27000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 27.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0004",
+      "end_event_id": "E001-0009",
+      "hook": "\"Someone had to pay for Mother's treatment.\"",
+      "cliffhanger": "\"If you uncover that name, Mother will disappear.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0004",
+        "E001-0009"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "Someone had to pay for Mother's treatment."
+  },
+  {
+    "id": "P-92ee893312c3",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 9000,
+        "end_ms": 56000,
+        "start": "00:09.00",
+        "end": "00:56.00",
+        "start_event_id": "E001-0005",
+        "end_event_id": "E001-0015"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 47000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 47.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0005",
+      "end_event_id": "E001-0015",
+      "hook": "\"The hospital says her treatment was paid for last month.\"",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0005",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-e14ebe9db457",
+    "shortlisted": false,
+    "title": "The hospital says her treatment was paid for last month."
+  },
+  {
+    "id": "P-9bd5f48bfb76",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 27000,
+        "end_ms": 56000,
+        "start": "00:27.00",
+        "end": "00:56.00",
+        "start_event_id": "E001-0009",
+        "end_event_id": "E001-0015"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 29000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 29.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0009",
+      "end_event_id": "E001-0015",
+      "hook": "\"If you uncover that name, Mother will disappear.\"",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0009",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-42e630bdb12a",
+    "shortlisted": false,
+    "title": "If you uncover that name, Mother will disappear."
+  },
+  {
+    "id": "P-9d3ced9a1699",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 4000,
+        "end_ms": 26000,
+        "start": "00:04.00",
+        "end": "00:26.00",
+        "start_event_id": "E001-0004",
+        "end_event_id": "E001-0008"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 22000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 22.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0004",
+      "end_event_id": "E001-0008",
+      "hook": "\"Someone had to pay for Mother's treatment.\"",
+      "cliffhanger": "\"Who is the witness? Why is the name blacked out?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0004",
+        "E001-0008"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "Someone had to pay for Mother's treatment."
+  },
+  {
+    "id": "P-a3ba130cb8b9",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 4000,
+        "end_ms": 38000,
+        "start": "00:04.00",
+        "end": "00:38.00",
+        "start_event_id": "E001-0004",
+        "end_event_id": "E001-0011"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 34000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 34.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0004",
+      "end_event_id": "E001-0011",
+      "hook": "\"Someone had to pay for Mother's treatment.\"",
+      "cliffhanger": "\"Why are you afraid of her calling?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0004",
+        "E001-0011"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "Someone had to pay for Mother's treatment."
+  },
+  {
+    "id": "P-a587e9105601",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 22000,
+        "end_ms": 60000,
+        "start": "00:22.00",
+        "end": "01:00.00",
+        "start_event_id": "E001-0008",
+        "end_event_id": "E001-0016"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 38000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 38.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0008",
+      "end_event_id": "E001-0015",
+      "hook": "\"Who is the witness? Why is the name blacked out?\"",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0008",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-42e630bdb12a",
+    "shortlisted": false,
+    "title": "Who is the witness? Why is the name blacked out?"
+  },
+  {
+    "id": "P-ae3bc010809c",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 27000,
+        "end_ms": 60000,
+        "start": "00:27.00",
+        "end": "01:00.00",
+        "start_event_id": "E001-0009",
+        "end_event_id": "E001-0016"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 33000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 33.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0009",
+      "end_event_id": "E001-0015",
+      "hook": "\"If you uncover that name, Mother will disappear.\"",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0009",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-42e630bdb12a",
+    "shortlisted": false,
+    "title": "If you uncover that name, Mother will disappear."
+  },
+  {
+    "id": "P-c0d1b12af6aa",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 15000,
+        "end_ms": 38000,
+        "start": "00:15.00",
+        "end": "00:38.00",
+        "start_event_id": "E001-0006",
+        "end_event_id": "E001-0011"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 23000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 23.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0006",
+      "end_event_id": "E001-0011",
+      "hook": "\"Then the hospital is lying to you.\"",
+      "cliffhanger": "\"Why are you afraid of her calling?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0006",
+        "E001-0011"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "Then the hospital is lying to you."
+  },
+  {
+    "id": "P-c613c1931335",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 19000,
+        "end_ms": 75000,
+        "start": "00:19.00",
+        "end": "01:15.00",
+        "start_event_id": "E001-0007",
+        "end_event_id": "E001-0019"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 56000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 56.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0007",
+      "end_event_id": "E001-0018",
+      "hook": "Mara turns the document over. A second signature is hidden beneath a folded corner.",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0007",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Mara turns the document over. A second signature is hidden beneath a folded corner."
+  },
+  {
+    "id": "P-d38880157b9a",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 0,
+        "end_ms": 52000,
+        "start": "00:00.00",
+        "end": "00:52.00",
+        "start_event_id": "E001-0001",
+        "end_event_id": "E001-0014"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 52000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 52.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0001",
+      "end_event_id": "E001-0014",
+      "hook": "\"You sold our house?\"",
+      "cliffhanger": "\"Ask your brother what he really sold.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0001",
+        "E001-0014"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "You sold our house?"
+  },
+  {
+    "id": "P-d41c420c159e",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 19000,
+        "end_ms": 69000,
+        "start": "00:19.00",
+        "end": "01:09.00",
+        "start_event_id": "E001-0007",
+        "end_event_id": "E001-0018"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 50000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 50.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0007",
+      "end_event_id": "E001-0018",
+      "hook": "Mara turns the document over. A second signature is hidden beneath a folded corner.",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0007",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Mara turns the document over. A second signature is hidden beneath a folded corner."
+  },
+  {
+    "id": "P-d9f54bd48829",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 9000,
+        "end_ms": 60000,
+        "start": "00:09.00",
+        "end": "01:00.00",
+        "start_event_id": "E001-0005",
+        "end_event_id": "E001-0016"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 51000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 51.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0005",
+      "end_event_id": "E001-0015",
+      "hook": "\"The hospital says her treatment was paid for last month.\"",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0005",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": null,
+    "shortlisted": false,
+    "title": "The hospital says her treatment was paid for last month."
+  },
+  {
+    "id": "P-dc78028eddcc",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 9000,
+        "end_ms": 43000,
+        "start": "00:09.00",
+        "end": "00:43.00",
+        "start_event_id": "E001-0005",
+        "end_event_id": "E001-0012"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 34000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 34.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0005",
+      "end_event_id": "E001-0012",
+      "hook": "\"The hospital says her treatment was paid for last month.\"",
+      "cliffhanger": "\"Do not answer that phone.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0005",
+        "E001-0012"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "The hospital says her treatment was paid for last month."
+  },
+  {
+    "id": "P-de2f05524b8f",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 9000,
+        "end_ms": 31000,
+        "start": "00:09.00",
+        "end": "00:31.00",
+        "start_event_id": "E001-0005",
+        "end_event_id": "E001-0009"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 22000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 22.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0005",
+      "end_event_id": "E001-0009",
+      "hook": "\"The hospital says her treatment was paid for last month.\"",
+      "cliffhanger": "\"If you uncover that name, Mother will disappear.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0005",
+        "E001-0009"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "The hospital says her treatment was paid for last month."
+  },
+  {
+    "id": "P-fd2c581289a8",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 22000,
+        "end_ms": 43000,
+        "start": "00:22.00",
+        "end": "00:43.00",
+        "start_event_id": "E001-0008",
+        "end_event_id": "E001-0012"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 21000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 21.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0008",
+      "end_event_id": "E001-0012",
+      "hook": "\"Who is the witness? Why is the name blacked out?\"",
+      "cliffhanger": "\"Do not answer that phone.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0008",
+        "E001-0012"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 50.0,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-e14ebe9db457",
+    "shortlisted": false,
+    "title": "Who is the witness? Why is the name blacked out?"
+  },
+  {
+    "id": "P-1509159baea0",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 9000,
+        "end_ms": 65000,
+        "start": "00:09.00",
+        "end": "01:05.00",
+        "start_event_id": "E001-0005",
+        "end_event_id": "E001-0017"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 56000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 56.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0005",
+      "end_event_id": "E001-0017",
+      "hook": "\"The hospital says her treatment was paid for last month.\"",
+      "cliffhanger": "\"She made me promise you would never open it.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0005",
+        "E001-0017"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-d9f54bd48829",
+    "shortlisted": false,
+    "title": "The hospital says her treatment was paid for last month."
+  },
+  {
+    "id": "P-1aae8a5ab556",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 15000,
+        "end_ms": 75000,
+        "start": "00:15.00",
+        "end": "01:15.00",
+        "start_event_id": "E001-0006",
+        "end_event_id": "E001-0019"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 60000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 60.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0006",
+      "end_event_id": "E001-0018",
+      "hook": "\"Then the hospital is lying to you.\"",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0006",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Then the hospital is lying to you."
+  },
+  {
+    "id": "P-1cbe6d420145",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 19000,
+        "end_ms": 47000,
+        "start": "00:19.00",
+        "end": "00:47.00",
+        "start_event_id": "E001-0007",
+        "end_event_id": "E001-0013"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 28000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 28.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0007",
+      "end_event_id": "E001-0012",
+      "hook": "Mara turns the document over. A second signature is hidden beneath a folded corner.",
+      "cliffhanger": "\"Do not answer that phone.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0007",
+        "E001-0012"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-e14ebe9db457",
+    "shortlisted": false,
+    "title": "Mara turns the document over. A second signature is hidden beneath a folded corner."
+  },
+  {
+    "id": "P-1efac287bda7",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 27000,
+        "end_ms": 69000,
+        "start": "00:27.00",
+        "end": "01:09.00",
+        "start_event_id": "E001-0009",
+        "end_event_id": "E001-0018"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 42000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 42.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0009",
+      "end_event_id": "E001-0018",
+      "hook": "\"If you uncover that name, Mother will disappear.\"",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0009",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "If you uncover that name, Mother will disappear."
+  },
+  {
+    "id": "P-3c8bb860e6df",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 22000,
+        "end_ms": 65000,
+        "start": "00:22.00",
+        "end": "01:05.00",
+        "start_event_id": "E001-0008",
+        "end_event_id": "E001-0017"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 43000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 43.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0008",
+      "end_event_id": "E001-0017",
+      "hook": "\"Who is the witness? Why is the name blacked out?\"",
+      "cliffhanger": "\"She made me promise you would never open it.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0008",
+        "E001-0017"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Who is the witness? Why is the name blacked out?"
+  },
+  {
+    "id": "P-515689cfb77f",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 39000,
+        "end_ms": 69000,
+        "start": "00:39.00",
+        "end": "01:09.00",
+        "start_event_id": "E001-0012",
+        "end_event_id": "E001-0018"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 30000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 30.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0012",
+      "end_event_id": "E001-0018",
+      "hook": "\"Do not answer that phone.\"",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0012",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Do not answer that phone."
+  },
+  {
+    "id": "P-60f4ddb9140f",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 43000,
+        "end_ms": 65000,
+        "start": "00:43.00",
+        "end": "01:05.00",
+        "start_event_id": "E001-0013",
+        "end_event_id": "E001-0017"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 22000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 22.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 1,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0013",
+      "end_event_id": "E001-0017",
+      "hook": "Mara locks the office door and answers on speaker. A stranger is breathing on the other end.",
+      "cliffhanger": "\"She made me promise you would never open it.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0013",
+        "E001-0017"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": null,
+    "shortlisted": false,
+    "title": "Mara locks the office door and answers on speaker. A stranger is breathing on the other end."
+  },
+  {
+    "id": "P-78f8bc081beb",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 22000,
+        "end_ms": 69000,
+        "start": "00:22.00",
+        "end": "01:09.00",
+        "start_event_id": "E001-0008",
+        "end_event_id": "E001-0018"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 47000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 47.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0008",
+      "end_event_id": "E001-0018",
+      "hook": "\"Who is the witness? Why is the name blacked out?\"",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0008",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Who is the witness? Why is the name blacked out?"
+  },
+  {
+    "id": "P-9b62b01f6b4a",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 19000,
+        "end_ms": 52000,
+        "start": "00:19.00",
+        "end": "00:52.00",
+        "start_event_id": "E001-0007",
+        "end_event_id": "E001-0014"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 33000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 33.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0007",
+      "end_event_id": "E001-0014",
+      "hook": "Mara turns the document over. A second signature is hidden beneath a folded corner.",
+      "cliffhanger": "\"Ask your brother what he really sold.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0007",
+        "E001-0014"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-e14ebe9db457",
+    "shortlisted": false,
+    "title": "Mara turns the document over. A second signature is hidden beneath a folded corner."
+  },
+  {
+    "id": "P-9fd4ec72a3c6",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 39000,
+        "end_ms": 60000,
+        "start": "00:39.00",
+        "end": "01:00.00",
+        "start_event_id": "E001-0012",
+        "end_event_id": "E001-0016"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 21000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 21.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 1,
+        "cliffhanger": 2,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0012",
+      "end_event_id": "E001-0015",
+      "hook": "\"Do not answer that phone.\"",
+      "cliffhanger": "\"Where is my mother?\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "A question near the end may already be answered; inspect the selected exchange",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0012",
+        "E001-0015"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-42e630bdb12a",
+    "shortlisted": false,
+    "title": "Do not answer that phone."
+  },
+  {
+    "id": "P-b35a2ef3bb8e",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 15000,
+        "end_ms": 65000,
+        "start": "00:15.00",
+        "end": "01:05.00",
+        "start_event_id": "E001-0006",
+        "end_event_id": "E001-0017"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 50000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 50.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0006",
+      "end_event_id": "E001-0017",
+      "hook": "\"Then the hospital is lying to you.\"",
+      "cliffhanger": "\"She made me promise you would never open it.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0006",
+        "E001-0017"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-d9f54bd48829",
+    "shortlisted": false,
+    "title": "Then the hospital is lying to you."
+  },
+  {
+    "id": "P-bca349dd5f0e",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 9000,
+        "end_ms": 69000,
+        "start": "00:09.00",
+        "end": "01:09.00",
+        "start_event_id": "E001-0005",
+        "end_event_id": "E001-0018"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 60000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 60.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0005",
+      "end_event_id": "E001-0018",
+      "hook": "\"The hospital says her treatment was paid for last month.\"",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0005",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-d9f54bd48829",
+    "shortlisted": false,
+    "title": "The hospital says her treatment was paid for last month."
+  },
+  {
+    "id": "P-be5285738fc6",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 53000,
+        "end_ms": 75000,
+        "start": "00:53.00",
+        "end": "01:15.00",
+        "start_event_id": "E001-0015",
+        "end_event_id": "E001-0019"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 22000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 22.0,
+    "assessment": {
+      "scores": {
+        "hook": 2,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 1,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0015",
+      "end_event_id": "E001-0018",
+      "hook": "\"Where is my mother?\"",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0015",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": null,
+    "shortlisted": false,
+    "title": "Where is my mother?"
+  },
+  {
+    "id": "P-bfee2a8e46ac",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 22000,
+        "end_ms": 75000,
+        "start": "00:22.00",
+        "end": "01:15.00",
+        "start_event_id": "E001-0008",
+        "end_event_id": "E001-0019"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 53000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 53.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0008",
+      "end_event_id": "E001-0018",
+      "hook": "\"Who is the witness? Why is the name blacked out?\"",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0008",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Who is the witness? Why is the name blacked out?"
+  },
+  {
+    "id": "P-c0a7dfe1fdba",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 39000,
+        "end_ms": 65000,
+        "start": "00:39.00",
+        "end": "01:05.00",
+        "start_event_id": "E001-0012",
+        "end_event_id": "E001-0017"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 26000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 26.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0012",
+      "end_event_id": "E001-0017",
+      "hook": "\"Do not answer that phone.\"",
+      "cliffhanger": "\"She made me promise you would never open it.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0012",
+        "E001-0017"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Do not answer that phone."
+  },
+  {
+    "id": "P-df43ab465174",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 27000,
+        "end_ms": 65000,
+        "start": "00:27.00",
+        "end": "01:05.00",
+        "start_event_id": "E001-0009",
+        "end_event_id": "E001-0017"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 38000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 38.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0009",
+      "end_event_id": "E001-0017",
+      "hook": "\"If you uncover that name, Mother will disappear.\"",
+      "cliffhanger": "\"She made me promise you would never open it.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0009",
+        "E001-0017"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "If you uncover that name, Mother will disappear."
+  },
+  {
+    "id": "P-e171f57b21b1",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 27000,
+        "end_ms": 75000,
+        "start": "00:27.00",
+        "end": "01:15.00",
+        "start_event_id": "E001-0009",
+        "end_event_id": "E001-0019"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 48000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 48.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0009",
+      "end_event_id": "E001-0018",
+      "hook": "\"If you uncover that name, Mother will disappear.\"",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0009",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "If you uncover that name, Mother will disappear."
+  },
+  {
+    "id": "P-efa0c8da463d",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 39000,
+        "end_ms": 75000,
+        "start": "00:39.00",
+        "end": "01:15.00",
+        "start_event_id": "E001-0012",
+        "end_event_id": "E001-0019"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 36000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 36.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0012",
+      "end_event_id": "E001-0018",
+      "hook": "\"Do not answer that phone.\"",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0012",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Do not answer that phone."
+  },
+  {
+    "id": "P-f090c316a376",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 15000,
+        "end_ms": 69000,
+        "start": "00:15.00",
+        "end": "01:09.00",
+        "start_event_id": "E001-0006",
+        "end_event_id": "E001-0018"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 54000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 54.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 1,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0006",
+      "end_event_id": "E001-0018",
+      "hook": "\"Then the hospital is lying to you.\"",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0006",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 44.4,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Then the hospital is lying to you."
+  },
+  {
+    "id": "P-06975dffe3b1",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 4000,
+        "end_ms": 35000,
+        "start": "00:04.00",
+        "end": "00:35.00",
+        "start_event_id": "E001-0004",
+        "end_event_id": "E001-0010"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 31000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 31.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0004",
+      "end_event_id": "E001-0009",
+      "hook": "\"Someone had to pay for Mother's treatment.\"",
+      "cliffhanger": "\"If you uncover that name, Mother will disappear.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0004",
+        "E001-0009"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 38.9,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "Someone had to pay for Mother's treatment."
+  },
+  {
+    "id": "P-156309e938e5",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 9000,
+        "end_ms": 52000,
+        "start": "00:09.00",
+        "end": "00:52.00",
+        "start_event_id": "E001-0005",
+        "end_event_id": "E001-0014"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 43000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 43.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0005",
+      "end_event_id": "E001-0014",
+      "hook": "\"The hospital says her treatment was paid for last month.\"",
+      "cliffhanger": "\"Ask your brother what he really sold.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0005",
+        "E001-0014"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 38.9,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "The hospital says her treatment was paid for last month."
+  },
+  {
+    "id": "P-4ec7447fef19",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 31000,
+        "end_ms": 52000,
+        "start": "00:31.00",
+        "end": "00:52.00",
+        "start_event_id": "E001-0010",
+        "end_event_id": "E001-0014"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 21000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 21.0,
+    "assessment": {
+      "scores": {
+        "hook": 1,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 1,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0010",
+      "end_event_id": "E001-0014",
+      "hook": "Mara's phone lights up with a call from her mother's number. Eli reaches for it.",
+      "cliffhanger": "\"Ask your brother what he really sold.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review"
+      ],
+      "evidence_event_ids": [
+        "E001-0010",
+        "E001-0014"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 38.9,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-42e630bdb12a",
+    "shortlisted": false,
+    "title": "Mara's phone lights up with a call from her mother's number. Eli reaches for it."
+  },
+  {
+    "id": "P-565bdd0cbdd0",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 15000,
+        "end_ms": 52000,
+        "start": "00:15.00",
+        "end": "00:52.00",
+        "start_event_id": "E001-0006",
+        "end_event_id": "E001-0014"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 37000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 37.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0006",
+      "end_event_id": "E001-0014",
+      "hook": "\"Then the hospital is lying to you.\"",
+      "cliffhanger": "\"Ask your brother what he really sold.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0006",
+        "E001-0014"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 38.9,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-e14ebe9db457",
+    "shortlisted": false,
+    "title": "Then the hospital is lying to you."
+  },
+  {
+    "id": "P-5e9b3e9e0d33",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 48000,
+        "end_ms": 75000,
+        "start": "00:48.00",
+        "end": "01:15.00",
+        "start_event_id": "E001-0014",
+        "end_event_id": "E001-0019"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 27000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 27.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0014",
+      "end_event_id": "E001-0018",
+      "hook": "\"Ask your brother what he really sold.\"",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0014",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 38.9,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-a53ac55be756",
+    "shortlisted": false,
+    "title": "Ask your brother what he really sold."
+  },
+  {
+    "id": "P-70767cbac1e1",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 9000,
+        "end_ms": 47000,
+        "start": "00:09.00",
+        "end": "00:47.00",
+        "start_event_id": "E001-0005",
+        "end_event_id": "E001-0013"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 38000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 38.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0005",
+      "end_event_id": "E001-0012",
+      "hook": "\"The hospital says her treatment was paid for last month.\"",
+      "cliffhanger": "\"Do not answer that phone.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0005",
+        "E001-0012"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 38.9,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "The hospital says her treatment was paid for last month."
+  },
+  {
+    "id": "P-7169ceea20ab",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 4000,
+        "end_ms": 52000,
+        "start": "00:04.00",
+        "end": "00:52.00",
+        "start_event_id": "E001-0004",
+        "end_event_id": "E001-0014"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 48000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 48.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0004",
+      "end_event_id": "E001-0014",
+      "hook": "\"Someone had to pay for Mother's treatment.\"",
+      "cliffhanger": "\"Ask your brother what he really sold.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0004",
+        "E001-0014"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 38.9,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "Someone had to pay for Mother's treatment."
+  },
+  {
+    "id": "P-7eff44d5c1cd",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 4000,
+        "end_ms": 47000,
+        "start": "00:04.00",
+        "end": "00:47.00",
+        "start_event_id": "E001-0004",
+        "end_event_id": "E001-0013"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 43000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 43.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0004",
+      "end_event_id": "E001-0012",
+      "hook": "\"Someone had to pay for Mother's treatment.\"",
+      "cliffhanger": "\"Do not answer that phone.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0004",
+        "E001-0012"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 38.9,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "Someone had to pay for Mother's treatment."
+  },
+  {
+    "id": "P-af87893f671a",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 22000,
+        "end_ms": 52000,
+        "start": "00:22.00",
+        "end": "00:52.00",
+        "start_event_id": "E001-0008",
+        "end_event_id": "E001-0014"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 30000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 30.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0008",
+      "end_event_id": "E001-0014",
+      "hook": "\"Who is the witness? Why is the name blacked out?\"",
+      "cliffhanger": "\"Ask your brother what he really sold.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0008",
+        "E001-0014"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 38.9,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-42e630bdb12a",
+    "shortlisted": false,
+    "title": "Who is the witness? Why is the name blacked out?"
+  },
+  {
+    "id": "P-c712964c8700",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 15000,
+        "end_ms": 47000,
+        "start": "00:15.00",
+        "end": "00:47.00",
+        "start_event_id": "E001-0006",
+        "end_event_id": "E001-0013"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 32000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 32.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0006",
+      "end_event_id": "E001-0012",
+      "hook": "\"Then the hospital is lying to you.\"",
+      "cliffhanger": "\"Do not answer that phone.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0006",
+        "E001-0012"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 38.9,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-e14ebe9db457",
+    "shortlisted": false,
+    "title": "Then the hospital is lying to you."
+  },
+  {
+    "id": "P-d5a8847bab0e",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 9000,
+        "end_ms": 35000,
+        "start": "00:09.00",
+        "end": "00:35.00",
+        "start_event_id": "E001-0005",
+        "end_event_id": "E001-0010"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 26000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 26.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0005",
+      "end_event_id": "E001-0009",
+      "hook": "\"The hospital says her treatment was paid for last month.\"",
+      "cliffhanger": "\"If you uncover that name, Mother will disappear.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0005",
+        "E001-0009"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 38.9,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "The hospital says her treatment was paid for last month."
+  },
+  {
+    "id": "P-f2a1a8474866",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 27000,
+        "end_ms": 52000,
+        "start": "00:27.00",
+        "end": "00:52.00",
+        "start_event_id": "E001-0009",
+        "end_event_id": "E001-0014"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 25000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 25.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0009",
+      "end_event_id": "E001-0014",
+      "hook": "\"If you uncover that name, Mother will disappear.\"",
+      "cliffhanger": "\"Ask your brother what he really sold.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0009",
+        "E001-0014"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 38.9,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-42e630bdb12a",
+    "shortlisted": false,
+    "title": "If you uncover that name, Mother will disappear."
+  },
+  {
+    "id": "P-fb8364862ddb",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 22000,
+        "end_ms": 47000,
+        "start": "00:22.00",
+        "end": "00:47.00",
+        "start_event_id": "E001-0008",
+        "end_event_id": "E001-0013"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 25000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 25.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0008",
+      "end_event_id": "E001-0012",
+      "hook": "\"Who is the witness? Why is the name blacked out?\"",
+      "cliffhanger": "\"Do not answer that phone.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0008",
+        "E001-0012"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 38.9,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-e14ebe9db457",
+    "shortlisted": false,
+    "title": "Who is the witness? Why is the name blacked out?"
+  },
+  {
+    "id": "P-fe4ebd79b430",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 48000,
+        "end_ms": 69000,
+        "start": "00:48.00",
+        "end": "01:09.00",
+        "start_event_id": "E001-0014",
+        "end_event_id": "E001-0018"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 21000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 21.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 2,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0014",
+      "end_event_id": "E001-0018",
+      "hook": "\"Ask your brother what he really sold.\"",
+      "cliffhanger": "\"Then she should have told me the truth.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0014",
+        "E001-0018"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 3
+    },
+    "score": 38.9,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-60f4ddb9140f",
+    "shortlisted": false,
+    "title": "Ask your brother what he really sold."
+  },
+  {
+    "id": "P-0ac76b6b2142",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 15000,
+        "end_ms": 35000,
+        "start": "00:15.00",
+        "end": "00:35.00",
+        "start_event_id": "E001-0006",
+        "end_event_id": "E001-0010"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 20000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 20.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 1,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0006",
+      "end_event_id": "E001-0009",
+      "hook": "\"Then the hospital is lying to you.\"",
+      "cliffhanger": "\"If you uncover that name, Mother will disappear.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0006",
+        "E001-0009"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 33.3,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-52853d8b4f05",
+    "shortlisted": false,
+    "title": "Then the hospital is lying to you."
+  },
+  {
+    "id": "P-67e176847045",
+    "origin": "boundary_search",
+    "segments": [
+      {
+        "episode_id": "E001",
+        "episode_number": 1,
+        "start_ms": 27000,
+        "end_ms": 47000,
+        "start": "00:27.00",
+        "end": "00:47.00",
+        "start_event_id": "E001-0009",
+        "end_event_id": "E001-0013"
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "duration_ms": 20000,
+      "cut_dialogue_ids": [],
+      "checks": {
+        "duration": true,
+        "source_boundaries": true,
+        "complete_dialogue": true,
+        "chronology": true
+      }
+    },
+    "proposal": {},
+    "duration_seconds": 20.0,
+    "assessment": {
+      "scores": {
+        "hook": 0,
+        "comprehension": 2,
+        "stakes": 0,
+        "progression": 1,
+        "cliffhanger": 0,
+        "cut_quality": 3
+      },
+      "hook_event_id": "E001-0009",
+      "end_event_id": "E001-0012",
+      "hook": "\"If you uncover that name, Mother will disappear.\"",
+      "cliffhanger": "\"Do not answer that phone.\"",
+      "unanswered_question": "Editorial review required: confirm a consequential question remains unanswered",
+      "why": "Opening and ending contain potential narrative signals; score is a transparent rules estimate, not a viewer probability.",
+      "risks": [
+        "Keyword rules cannot establish standalone comprehension or audience interest",
+        "Script timing and visual performance require footage review",
+        "Opening dialogue crosses three seconds; exact word timing is unknown"
+      ],
+      "evidence_event_ids": [
+        "E001-0009",
+        "E001-0012"
+      ],
+      "method": "offline_rules",
+      "speaker_count": 2
+    },
+    "score": 33.3,
+    "eligible": false,
+    "status": "not_ai_assessed",
+    "duplicate_of": "P-e14ebe9db457",
+    "shortlisted": false,
+    "title": "If you uncover that name, Mother will disappear."
+  }
+]

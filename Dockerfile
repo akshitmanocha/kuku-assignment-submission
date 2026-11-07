@@ -8,7 +8,6 @@ COPY promo_lab/ ./promo_lab/
 RUN install -d -o 10001 -g 10001 /app/output
 
 USER 10001:10001
-RUN python -m promo_lab run promo_lab/examples --output output/runs/original-demo
 
 EXPOSE 8765
 CMD ["python", "-m", "promo_lab", "serve", "--host", "0.0.0.0"]
