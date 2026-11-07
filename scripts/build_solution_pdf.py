@@ -20,8 +20,6 @@ from reportlab.platypus import (
     Paragraph,
     SimpleDocTemplate,
     Spacer,
-    Table,
-    TableStyle,
 )
 
 
@@ -29,7 +27,6 @@ ROOT = Path(__file__).resolve().parents[1]
 INK = colors.HexColor("#202b26")
 MUTED = colors.HexColor("#606b62")
 ACCENT = colors.HexColor("#d5f16b")
-PAPER = colors.HexColor("#f2f4ed")
 
 
 def clean(text: str, maximum: int = 650) -> str:
@@ -100,9 +97,6 @@ def build(run_dir: Path, output: Path) -> None:
     def heading(text):
         story.append(Paragraph(text, styles["HeadingLab"]))
 
-    def rate(value):
-        return "unmeasured" if value is None else f"{100 * value:.1f}%"
-
     story.append(p("KUKU AI GENERALIST ASSIGNMENT / PROBLEM 1", small=True))
     story.append(Paragraph("Promo Lab", styles["TitleLab"]))
     story.append(
@@ -149,7 +143,7 @@ def build(run_dir: Path, output: Path) -> None:
     )
 
     story.append(PageBreak())
-    story.append(p("SYNTHETIC LEARNING / FULL-PACK EVALUATION", small=True))
+    story.append(p("SYNTHETIC LEARNING / SCRIPT ANALYSIS RESULTS", small=True))
     story.append(Paragraph("Feedback loop and results", styles["TitleLab"]))
     story.append(
         Image(
@@ -159,94 +153,55 @@ def build(run_dir: Path, output: Path) -> None:
             kind="proportional",
         )
     )
-    heading("What I checked")
-    usage = [(entry.get("response") or {}).get("usage", {}) for entry in result["model_journal"]]
-    tokens = sum(item.get("total_tokens", 0) for item in usage)
-    uncached = sum(not entry.get("cached", False) for entry in result["model_journal"])
-    rows = [
-        ["Check", "Observed result"],
-        [
-            "Input coverage",
-            f"{summary['episodes']} episodes and {summary['events']:,} timestamped events",
-        ],
-        [
-            "Candidate search",
-            f"{summary['candidates']:,} generated, {summary['valid_candidates']:,} source-valid, {summary['distinct_candidates']:,} distinct",
-        ],
-        [
-            "Shortlist",
-            f"{summary['shortlisted']} selected from {summary['ai_assessed']} AI-assessed candidates"
-            if result["mode"] != "offline"
-            else f"{summary['shortlisted']} selected by the offline rules",
-        ],
-        [
-            "Model usage",
-            f"{summary['ai_calls']} logical calls ({uncached} uncached) and {tokens:,} reported tokens, including cached responses",
-        ],
-        [
-            "Fixed-window baseline",
-            f"n={evaluation['baseline']['count']}, valid {rate(evaluation['baseline']['valid_rate'])}, dialogue cuts {rate(evaluation['baseline']['dialogue_cut_rate'])}",
-        ],
-        [
-            "Selected cuts",
-            f"n={evaluation['shortlist']['count']}, valid {rate(evaluation['shortlist']['valid_rate'])}, dialogue cuts {rate(evaluation['shortlist']['dialogue_cut_rate'])}",
-        ],
-    ]
-    evidence = Table(
-        [[p(clean(value), small=True) for value in row] for row in rows],
-        colWidths=[46 * mm, 129 * mm],
-        hAlign="LEFT",
+    heading(f"From {summary['episodes']} episodes to {summary['shortlisted']} promos")
+    selection = (
+        f"The AI successfully scored {summary['ai_assessed']} finalists, at most one per episode. "
+        if result["mode"] != "offline"
+        else "The offline rules scored the possible clips. "
     )
-    evidence.setStyle(
-        TableStyle(
-            [
-                ("BACKGROUND", (0, 0), (-1, 0), PAPER),
-                ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                ("LEFTPADDING", (0, 0), (-1, -1), 8),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 8),
-                ("TOPPADDING", (0, 0), (-1, -1), 3),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
-                ("LINEBELOW", (0, 0), (-1, -1), 0.35, colors.HexColor("#dde2d5")),
-            ]
-        )
-    )
-    story.append(evidence)
-    story.append(Spacer(1, 6))
     story.append(
         p(
-            "The audit rechecks source intervals and artifact hashes. The baseline starts at each episode's first spoken line and takes about 30 seconds. This comparison checks cut boundaries. Audience preference requires a controlled study."
+            f"I ran the tool on the supplied scripts. Of {summary['candidates']:,} possible clips, "
+            f"{summary['valid_candidates']:,} passed the script and timing checks. Grouping near-duplicates "
+            f"left {summary['distinct_candidates']:,} distinct clips. The {result['config']['shortlist_percent']:g}% target "
+            f"gave {summary['target_shortlist']} slots after rounding up. {selection}"
+            f"The tool recommended the {summary['shortlisted']} highest-ranked clips that met the scoring rules."
         )
     )
     if result.get("partial"):
         story.append(
             p(
-                "Provider availability limited AI coverage. The exports identify affected episodes and candidates.",
+                "The AI service was unavailable for parts of the run. The exports show which clips it missed.",
                 small=True,
             )
         )
-    elif (
-        result["mode"] != "offline"
-        and summary.get("ai_assessed_episodes", summary["ai_assessed"]) < summary["episodes"]
-    ):
-        story.append(
-            p(
-                "Some critiques failed source-evidence or candidate-ID validation and were excluded from the shortlist.",
-                small=True,
-            )
+
+    heading("How I checked the recommendations")
+    baseline, recommended = evaluation["baseline"], evaluation["shortlist"]
+    story.append(
+        p(
+            "I checked that the timestamps matched the script, the clips lasted 20-60 seconds and no lines were cut short. "
+            "For comparison, I took roughly 30 seconds from each episode's first spoken line. "
+            f"{baseline['valid_count']} of those {baseline['count']} clips passed, and {baseline['dialogue_cut_count']} cut a line short. "
+            f"Of the {recommended['count']} recommendations, {recommended['valid_count']} passed "
+            f"and {recommended['dialogue_cut_count']} cut a line short. Viewer interest still needs to be measured in the feed."
         )
+    )
 
     shortlist = [candidate for candidate in result["candidates"] if candidate["shortlisted"]]
     if shortlist:
         sample = min(shortlist, key=lambda candidate: candidate["duration_seconds"])
         spans = ", ".join(
-            f"EP {item['episode_number']} {item['start']}-{item['end']}"
+            f"episode {item['episode_number']}, {item['start']} to {item['end']}"
             for item in sample["segments"]
         )
         heading("An example recommendation")
         story.append(
             p(
-                f"<b>{clean(sample['title'], 110)}</b> | {clean(spans)} | {sample['duration_seconds']:.2f}s | rank {sample.get('rank', '-')}<br/><b>Hook</b> {clean(sample['assessment']['hook'], 150)}<br/><b>Ending</b> {clean(sample['assessment']['cliffhanger'], 150)}",
-                small=True,
+                f"<b>{clean(sample['title'], 110)}</b> is a {sample['duration_seconds']:.2f}-second promo "
+                f"from {clean(spans)}.<br/>"
+                f"<b>Early hook</b> {clean(sample['assessment']['hook'], 150)}<br/>"
+                f"<b>Closing line</b> {clean(sample['assessment']['cliffhanger'], 150)}"
             )
         )
 
@@ -261,25 +216,26 @@ def build(run_dir: Path, output: Path) -> None:
     )
     if invalid_proposal:
         spans = ", ".join(
-            f"EP {item['episode_number']} {item['start']}-{item['end']}"
+            f"episode {item['episode_number']}, {item['start']} to {item['end']}"
             for item in invalid_proposal["segments"]
         )
         reasons = ". ".join(invalid_proposal["validation"]["errors"])
         story.append(
             p(
-                f"<b>Observed AI error.</b> The model proposed a {invalid_proposal['duration_seconds']:.2f}-second cut ({clean(spans)}). The source check rejected it. {clean(reasons, 180)}. The original response remains in the raw outputs."
+                f"<b>Observed AI error.</b> The model suggested a {invalid_proposal['duration_seconds']:.2f}-second clip "
+                f"from {clean(spans)}. The tool rejected it. {clean(reasons, 180)}."
             )
         )
     elif result["rejected_proposals"]:
         reason = clean(result["rejected_proposals"][0]["reason"], 220)
         story.append(
             p(
-                f"<b>Observed AI error.</b> One proposal failed validation for this reason: {reason}. The raw output retains the original response."
+                f"<b>Observed AI error.</b> The tool rejected a clip suggested by the model. {reason}."
             )
         )
     story.append(
         p(
-            "A model can mistake missing context for suspense or infer details from speaker labels. Reviewing one finalist per episode can miss better cuts. Acting, visual joins and frame-accurate timing need a footage review."
+            "The model can mistake a confusing ending for suspense. Scoring one finalist per episode can miss a stronger clip. An editor still needs to watch the footage to check performances and transitions."
         )
     )
 
