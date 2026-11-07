@@ -1,62 +1,63 @@
 # Promo Lab
 
-Find promising microdrama advertisements in timestamped scripts, inspect the source evidence, and collect feedback for a later audience model.
+[![Checks](https://github.com/akshitmanocha/kuku-assignment-submission/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/akshitmanocha/kuku-assignment-submission/actions/workflows/checks.yml)
 
-Built for **Kuku Problem 1: Find the Promos**. The application recommends 20–60-second source intervals; it does not render video. It runs locally with Python and includes an original fictional screenplay, so a reviewer can try it without credentials or the confidential input pack.
+Promo Lab reads a timestamped screenplay and finds short sections that could work as advertisements. For each recommendation, it shows the episode, exact start and end points, opening hook, unresolved ending, and the reason for choosing it.
 
-## Quick start
+This is my submission for **Kuku's “Find the Promos” problem**. The goal is to give an editor a useful shortlist and enough evidence to judge each cut. The project also includes a small reading experiment and a separate simulation of learning from audience feedback.
 
-Requires **Python 3.10 or newer**. No API key, npm build, or database service is needed for the offline demo.
+<details>
+<summary>See the workbench</summary>
+
+![Promo Lab showing a recommendation, timestamps and source text from the original public demo](docs/images/workbench.png)
+
+The screenshot uses the included fictional example and the offline scorer.
+
+</details>
+
+## Try it locally
+
+You need **Python 3.10+**. The basic demo needs no API key or additional packages.
 
 ```bash
+git clone https://github.com/akshitmanocha/kuku-assignment-submission.git
+cd kuku-assignment-submission
 python3 -m promo_lab run promo_lab/examples --output output/runs/original-demo
 python3 -m promo_lab serve
 ```
 
-Open **http://127.0.0.1:8765**. The first command creates a demo analysis; the second starts the local interface. On Windows, use `py` instead of `python3` if needed. The server listens only on this computer; its URL is not a remotely hosted submission link.
+Open **http://127.0.0.1:8765**. The first command analyses the included example; the second starts the app. On Windows, use `py` instead of `python3` if needed.
 
-| View | What you can do |
-| --- | --- |
-| Discover promos | Inspect ranked clips, episode timestamps, hook, ending, rationale and original source events |
-| Episode library | Check which episodes were processed and inspect timing concerns |
-| Quality report | Compare structural checks with a simple baseline and inspect actual rejected cuts |
-| Run history | Reopen saved analyses and download JSON/CSV or a private run bundle |
-| Reading experiment | Randomly show text promos among ordinary stories and record real reading behavior |
-| Synthetic demo | Generate explicitly synthetic feedback, fit a small response model and compare selection policies |
-
-To use a new input, choose **New analysis → Upload your screenplay files**, or run:
+To analyse your own scripts, choose **New analysis → Upload your screenplay files**, or use the CLI:
 
 ```bash
 python3 -m promo_lab run path/to/scripts.zip --output output/runs/my-run
 ```
 
-See the [input format](docs/INPUT_FORMAT.md) for a minimal example and accepted timestamps.
+TXT files, folders and ZIP archives are supported. The [input guide](docs/INPUT_FORMAT.md) explains the format. The app runs on your computer; it is not a hosted website.
 
-## What is implemented
+## How it works
 
 ```mermaid
 flowchart TD
-    A[Timestamped episode scripts] --> B[Rules and optional LLM proposals]
-    B --> C[Source checks and candidate-only editorial assessment]
-    C --> D[Rank and shortlist source clips]
-    D --> E[Real text-card experiment]
-    E --> F[Consent-based interaction records and training exports]
-    D --> G[Separate synthetic response simulator]
-    G --> H[Candidate response model and daily epsilon-greedy updates]
-    H --> I[Held-out prediction checks and randomized synthetic comparison]
+    A[Read scripts and timestamps] --> B[Find possible 20–60-second cuts]
+    B --> C[Check source boundaries and assess each candidate]
+    C --> D[Rank candidates and return a shortlist]
+    D --> E[Collect real reading feedback in a text-card feed]
+    D --> F[Demonstrate learning with separate synthetic responses]
 ```
 
-The project has three distinct kinds of evidence:
+**Finding the promos.** The parser keeps dialogue, actions and timestamps tied to their source. Rules generate possible cuts, and an optional LLM proposes and assesses candidates. Code checks duration, source references, chronological order and whether a boundary cuts through dialogue. Candidates are ranked on hook, clarity, stakes, progression, cliffhanger and cut quality. Similar overlapping cuts are grouped before selecting the requested top 1%, subject to quality checks.
 
-- **Editorial analysis:** code checks boundaries, duration and source references. AI judgments of hook and cliffhanger remain estimates.
-- **Real reading feedback:** actual participants supply foreground reading time, text coverage, skips and continuation choices. These are reading proxies, not video watch or conversion labels. Real-audience model training is deferred until sufficient data exists.
-- **Synthetic learning demonstration:** a small Beta-Bernoulli model learns a success probability per candidate from generated responses. It demonstrates daily feedback updates and selection that gradually reaches 80% exploitation / 20% exploration. It does not train a text encoder or prove engagement improvement.
+**Collecting feedback.** In **Reading experiment**, a participant sees six ordinary story cards and one randomly chosen promo. With consent, the app records reading time, visible text, skips and “Keep reading” clicks. Repeated views remain separate records; missing responses are not treated as failures. This collects reading behavior, not video engagement. See the [experiment guide](docs/EXPERIMENT.md).
 
-[Current architecture](docs/ARCHITECTURE.md) explains these boundaries. [ML_ARCHITECTURE.md](ML_ARCHITECTURE.md) specifies the later embedding-based audience model and production evaluation design.
+**Showing the learning loop.** In **Synthetic demo**, generated responses train a small model that estimates a success probability for each promo. It starts with random choices, then gradually moves to 80% choosing the estimated best candidate and 20% exploring. The model updates daily and is compared with a random control. Try fixed preferences, equal preferences and changing trends. These are explicitly synthetic results, kept separate from real responses. See the [simulation guide](docs/SYNTHETIC_DEMO.md).
 
-## Optional LLM analysis
+The current learning model uses candidate identity and success/failure counts. A text embedding model trained on substantial real feedback is a later step. The [current architecture](docs/ARCHITECTURE.md) and [future ML design](ML_ARCHITECTURE.md) explain the distinction.
 
-Copy `.env.example` to `.env`, configure a compatible endpoint, model and key, then restart the server. The generic adapter supports OpenRouter/Nemotron and other compatible services; Groq and local Ollama have separate configuration options.
+## Use an LLM
+
+The app supports an OpenAI-compatible endpoint, a separate Groq configuration, or local Ollama. Copy `.env.example` to `.env`, add your model settings and key, then restart the app. For example:
 
 ```dotenv
 PROMO_API_BASE=https://openrouter.ai/api/v1
@@ -69,43 +70,27 @@ python3 -m promo_lab run promo_lab/examples --provider openai \
   --output output/runs/my-ai-demo
 ```
 
-`openai` names the compatible protocol; it does not require the OpenAI service. Model availability and provider quotas may change. The app never silently switches to a paid model. Python installations needing CA certificates can install the optional `ai` extra with `python3 -m pip install -e '.[ai]'`.
+Here, `openai` refers to the API format, not necessarily the OpenAI service. The model can be swapped without changing the pipeline. The offline demo remains available if a provider is unavailable. See [provider setup](docs/PROVIDERS.md) for input restrictions, caching, partial runs and the other options.
 
-The configured free NVIDIA endpoint defaults to public inputs. Confidential processing requires an explicit owner authorization setting; this never marks the source public. See [provider configuration, caching and failure behavior](docs/PROVIDERS.md). Provider tests use mocked requests and do not establish live availability.
+## Results and limitations
 
-## Collect real feedback
+The saved full-pack run processed **50 episodes and 3,727 timestamped events**, generated **16,023 candidate cuts**, and returned **six shortlisted promos**. It used Groq Qwen; a separate Nemotron run checked integration on the included public example. The private screenplay pack and raw outputs are not in this repository.
 
-Open **Reading experiment**, create a study and choose either the public demo or a saved shortlist. Each consenting participant receives six filler stories and one random target promo. All cards offer the same continuation action. Saved-run continuations use subsequent script text; no sequel is invented.
+The quality report compares source validity and dialogue truncation with a simple fixed-window baseline. Those checks show that edit boundaries are being enforced; they do not establish that viewers will prefer the shortlist. LLM scores are editorial estimates, and the synthetic learning curves depend on the simulator's assumptions.
 
-The report shows observed denominators, unknown outcomes, confidence intervals and separate repeat-exposure counts. Download `training.jsonl`, `training.csv`, `events.jsonl` or `report.json`. Unseen advertisements are not negative examples; interrupted outcomes stay unknown unless a positive was already observed. Software-test studies are excluded from default training exports.
+Acting, visual continuity and precise footage timing still need an editor's review. Production hosting, real-audience model training and encoder fine-tuning are future work.
 
-Detailed event, label and deletion behavior: [reading experiment](docs/EXPERIMENT.md).
+## Run the checks
 
-## Demonstrate the learning loop
-
-Open **Synthetic demo**, choose a candidate source and generate a reproducible run. The default creates **4,800 synthetic exposures**: 400 cold-start, 200 held-out validation and 14 days with 150 viewers per policy arm per day.
-
-Try three scenarios: fixed unequal appeal, equal appeal (no signal), and changing trends. The model receives synthetic feedback, while the simulator's assumed probabilities stay out of its inputs. Control and validation responses never update the policy model. No seed search or guaranteed improvement is used.
-
-```bash
-python3 scripts/run_synthetic_demo.py --scenario stationary --seed 42
-python3 scripts/run_synthetic_demo.py --scenario no_signal --seed 42
-```
-
-Every generated row is labeled synthetic and ineligible for real-model training. [Synthetic demo assumptions and metrics](docs/SYNTHETIC_DEMO.md) explains how to present the results honestly.
-
-## Verification
-
-Core tests need only Python:
+The core tests use only Python:
 
 ```bash
 python3 -m unittest discover -s tests -v
 python3 scripts/check_repository.py
-python3 scripts/audit_run.py output/runs/original-demo
 python3 scripts/run_http_checks.py
 ```
 
-Optional development tools provide consistent formatting and browser checks:
+For formatting and browser checks:
 
 ```bash
 python3 -m pip install -e '.[dev]'
@@ -116,36 +101,18 @@ npm run format:check
 PLAYWRIGHT_CHANNEL=chromium python3 scripts/run_http_checks.py --browser
 ```
 
-The HTTP/browser wrapper starts a server on a free port with a temporary database and shuts it down afterward. Browser runs check desktop/mobile layout, uploads, real-interaction logging, offline retries, deletion, synthetic provenance and exports. Test responses do not enter your live experiment data. See [development and GitHub Actions](CONTRIBUTING.md) and the [verification record](docs/VALIDATION.md).
+The browser checks use a temporary server and database, so they do not change saved participant data. GitHub Actions runs the checks on pushes and pull requests. Details are in [CONTRIBUTING.md](CONTRIBUTING.md) and the [verification record](docs/VALIDATION.md).
 
-## Repository map
+## Code and documentation
 
-```text
-promo_lab/       Parser, editorial pipeline, API adapters, experiment and simulator
-  web/           Vanilla HTML, CSS and JavaScript interface
-  examples/      Original public screenplay
-scripts/         Audits, isolated checks, synthetic demo and submission packaging
-tests/           Source integrity, provider, experiment and simulation tests
-docs/            Architecture, setup, measurement contracts and submission guide
-.github/         Automated checks; no deployment or API credentials required
-```
+- `promo_lab/` — parser, candidate selection, provider adapters, experiments and simulation.
+- `promo_lab/web/` — the HTML, CSS and JavaScript interface; no frontend build step.
+- `promo_lab/examples/` — original public fiction for trying the project.
+- `tests/` — parsing, model-output validation, event logging and simulation tests.
+- `scripts/` — audits, browser checks, document generation and packaging.
 
-Generated state is local and Git-ignored:
+The app saves analyses, model caches, real interactions and synthetic runs separately under `output/`. That directory and `.env` are ignored by Git. Supplied Kuku scripts, participant responses and API keys are not included in the public source.
 
-| Path | Contents |
-| --- | --- |
-| `output/runs/` | Editorial results, source text, raw model responses and audit manifests |
-| `output/provider_cache/` | Private cached provider requests/responses |
-| `output/experiments/` | Real interaction SQLite database |
-| `output/simulations/` | Clearly labeled synthetic responses, reports and model snapshots |
-| `output/pdf/` | Generated solution document |
+For the assignment materials, see the [solution notes](docs/SOLUTION.md), [submission guide](docs/SUBMISSION.md) and [short walkthrough outline](docs/WALKTHROUGH.md).
 
-## Submission and limits
-
-Use the [submission guide](docs/SUBMISSION.md) to build the two-page solution PDF, audit the full-pack outputs and create separate source/private archives. The [walkthrough outline](docs/WALKTHROUGH.md) is for an optional recording in the applicant's own voice. Review the work and submit only what you understand.
-
-The saved private full-pack run covers 50 episodes and selects six promos. Its editorial model was Groq Qwen; the saved Nemotron run verifies integration on original public fiction. These outputs are local artifacts, not part of a fresh checkout. See [editorial scoring, deduplication and failure modes](docs/EDITORIAL_PIPELINE.md).
-
-Human review remains necessary for standalone comprehension, acting, precise footage timing and visual joins. The prototype has no remote hosting, production model promotion or validated real-audience predictor. Contrastive learning and encoder fine-tuning remain future improvements.
-
-Confidential Kuku scripts, participant records, raw outputs and API keys must stay out of a public repository. Source packaging uses an allowlist and credential checks. Codex assisted implementation, tests and documentation; inference providers are disclosed in each run. Detailed [solution narrative](docs/SOLUTION.md).
+Codex assisted with implementation, tests and documentation. Each saved analysis records which inference model was used, along with its original responses and any rejected proposals.

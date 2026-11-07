@@ -32,8 +32,8 @@ These counts are historical run evidence, not a new full-pack inference performe
 
 ## Scope of the checks
 
-GitHub Actions is configured for Python 3.10/3.13 and browser checks after push, pull request or manual dispatch. Its underlying commands pass locally, and independent actionlint validation passes. The source-only review branch has been pushed and a draft pull request opened in the private repository.
+GitHub Actions is configured for Python 3.10/3.13 and browser checks after push, pull request or manual dispatch. Its underlying commands pass locally, and independent actionlint validation passes. Current hosted results are available in the repository's [Actions tab](https://github.com/akshitmanocha/kuku-assignment-submission/actions/workflows/checks.yml).
 
-During the GitHub handoff, both push and pull-request runs ended with `startup_failure` before creating any jobs. GitHub attributed them to a deleted `BuildFailed` workflow record with no runner logs. Repository Actions is enabled, all actions are allowed, and the referenced official action tags were verified. The API did not expose a specific root cause. Hosted checks have therefore **not passed**; local validation must not be represented as a successful GitHub run. Account settings and repository visibility were not changed, and the pull request remains a draft for review.
+During the initial handoff, hosted runs ended with `startup_failure` before creating any jobs. Those earlier attempts did not run the tests. The repository has since been made public by its owner, and the checks are being rerun as part of the main-branch handoff. Local validation and hosted results are recorded separately; a configured workflow alone is not evidence that CI passed.
 
 No new external model inference, remote deployment, real-audience model training or applicant-narrated video was performed as part of this verification. The source and private submission archives exclude real participant data. Synthetic outcomes are separately labeled and do not prove customer preferences.
