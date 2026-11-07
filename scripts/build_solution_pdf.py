@@ -107,12 +107,12 @@ def build(run_dir: Path, output: Path) -> None:
     story.append(Paragraph("Promo Lab", styles["TitleLab"]))
     story.append(
         p(
-            "I chose Find the Promos because an editor can check every recommendation against the screenplay. The tool returns a ranked list of 20-60 second cuts with timestamps and reasons. The editor makes the final decision after reviewing the footage."
+            "I chose Find the Promos because editors can verify each cut against the script, and viewers can show us which cuts make them want to continue. My approach uses an LLM to find promising promos, then learns from viewer behavior."
         )
     )
     story.append(
         p(
-            "<b>Assumptions.</b> Timestamps are relative to each episode. Dialogue, action and camera tracks can overlap. A promo may join up to three source segments in chronological order. The shortlist targets 1% of distinct valid cuts, subject to quality checks."
+            "<b>Assumptions.</b> Timestamps are episode-relative, and dialogue, action and camera tracks can overlap. A 20-60 second promo can join up to three segments in chronological order. With scripts as input, the pilot uses reading as a proxy for watching."
         )
     )
     story.append(Spacer(1, 2))
@@ -125,20 +125,20 @@ def build(run_dir: Path, output: Path) -> None:
         )
     )
 
-    heading("The approach")
+    heading("My three-stage pipeline")
     story.append(
         p(
-            "<b>1. Find and rank the cuts.</b> Parse dialogue and action into timestamped events. Search plausible cut boundaries and ask the LLM to propose additional intervals using event IDs. Code checks the source, duration, sequence and whether a cut interrupts dialogue. A second prompt sees only the selected dialogue and action. It scores the hook, clarity, stakes, progression, cliffhanger and cut quality from 0 to 3. Hook, clarity and cliffhanger must each reach 2. Group overlapping variants before shortlisting."
+            "<b>1. LLM candidate retrieval.</b> Parse scripts into timestamped events. Generate cuts from script boundaries and ask the LLM for more using event IDs. Code checks source, duration, order and dialogue boundaries. A second LLM pass scores the hook, clarity, stakes, progression, cliffhanger and cut quality. Group overlaps and target the top 1% of distinct valid cuts, subject to score thresholds."
         )
     )
     story.append(
         p(
-            "<b>2. Record reading feedback.</b> Place one random promo among six text stories. With consent, save a row for each promo exposure. X describes the promo and its placement. Y records what happened. A qualified response requires a continuation click, at least 15 active seconds and at least 75% of the continuation text seen. Interrupted outcomes can stay unknown."
+            "<b>2. Internal survey in a simulated feed.</b> Ask employees to browse a reel-style feed with one random promo among six unrelated stories. The text-card prototype logs one row per exposure with consent. A positive label requires a continuation click, 15 active seconds and 75% of the continuation text seen. These behavior labels would train the first model."
         )
     )
     story.append(
         p(
-            "<b>3. Test the learning loop.</b> A separate simulator generates labeled responses. Estimate each promo's success from its successes and failures. After warm-up, choose the current best 80% of the time and explore randomly 20% of the time. Update daily, giving older feedback less weight. Compare with a random control and check predictions on held-out responses."
+            "<b>3. Epsilon-greedy selection and online training.</b> In a live pilot, start with the model trained on internal feedback. Explore heavily at first. Once stable, show the highest-scoring promo 80% of the time and choose randomly 20%. Log each outcome and selection probability. Update daily, giving older feedback less weight. Compare qualified continuation against a separate random control. The prototype simulates this loop with per-promo estimates and held-out validation."
         )
     )
     heading("How it would scale")
@@ -149,7 +149,7 @@ def build(run_dir: Path, output: Path) -> None:
     )
 
     story.append(PageBreak())
-    story.append(p("FULL-PACK RUN / EVALUATION / SCALING", small=True))
+    story.append(p("SYNTHETIC LEARNING / FULL-PACK EVALUATION", small=True))
     story.append(Paragraph("Feedback loop and results", styles["TitleLab"]))
     story.append(
         Image(
