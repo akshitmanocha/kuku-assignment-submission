@@ -7,6 +7,7 @@ Local verification completed on **7 November 2026**. These checks concern the wo
 | Python unit tests | 74 passed, covering parsing, source validation, provider mocks, real-event contracts and simulator isolation |
 | Ruff lint and formatting | Passed for application, scripts and tests |
 | Frontend syntax and Prettier | Passed for JavaScript, HTML, CSS and workflow configuration |
+| Workflow structure and expressions | Passed independent actionlint 1.7.12 validation; referenced official action tags exist |
 | Isolated HTTP checks | Passed: private-file denial, host/origin checks, malformed inputs, fresh upload, polling and exports |
 | Editorial browser flow | Passed: source inspection, filters, coverage, quality, history, new analyses, upload, download and mobile layout |
 | Reading browser flow | Passed: consent, randomized cards, reload censoring, continuation, offline retry, test export exclusion, shared-device reset and deletion |
@@ -31,6 +32,8 @@ These counts are historical run evidence, not a new full-pack inference performe
 
 ## Scope of the checks
 
-GitHub Actions is configured for Python 3.10/3.13 and browser checks after push, pull request or manual dispatch. It has been reviewed and its underlying commands exercised locally; no successful hosted GitHub run is claimed before publication.
+GitHub Actions is configured for Python 3.10/3.13 and browser checks after push, pull request or manual dispatch. Its underlying commands pass locally, and independent actionlint validation passes. The source-only review branch has been pushed and a draft pull request opened in the private repository.
+
+During the GitHub handoff, both push and pull-request runs ended with `startup_failure` before creating any jobs. GitHub attributed them to a deleted `BuildFailed` workflow record with no runner logs. Repository Actions is enabled, all actions are allowed, and the referenced official action tags were verified. The API did not expose a specific root cause. Hosted checks have therefore **not passed**; local validation must not be represented as a successful GitHub run. Account settings and repository visibility were not changed, and the pull request remains a draft for review.
 
 No new external model inference, remote deployment, real-audience model training or applicant-narrated video was performed as part of this verification. The source and private submission archives exclude real participant data. Synthetic outcomes are separately labeled and do not prove customer preferences.
