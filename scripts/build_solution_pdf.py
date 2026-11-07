@@ -305,7 +305,7 @@ def build(run_dir: Path, output: Path) -> None:
     heading("Rerun, feedback, and future learning")
     story.append(
         p(
-            "README run steps support new uploads and swappable server-side providers. Cache by content, prompt and model; process episodes independently. Quadratic boundary search needs pruning for larger inputs. Tests, isolated browser checks and a GitHub workflow support reruns; logged free-tier usage does not establish production cost."
+            "README run steps support new uploads and swappable server-side providers. Cache by content, prompt and model; process episodes independently. Quadratic boundary search needs pruning for larger inputs. Tests and isolated browser checks support reruns; logged free-tier usage does not establish production cost."
         )
     )
     story.append(

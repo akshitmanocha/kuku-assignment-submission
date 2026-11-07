@@ -22,7 +22,7 @@ def source_files():
         path = ROOT / name
         if path.is_file():
             yield path
-    for name in ("promo_lab", "scripts", "tests", "docs", ".github"):
+    for name in ("promo_lab", "scripts", "tests", "docs"):
         yield from (
             p
             for p in (ROOT / name).rglob("*")

@@ -4,8 +4,8 @@
   "type": "module",
   "description": "Optional browser tests and formatting; the app itself requires only Python.",
   "scripts": {
-    "format": "prettier --write promo_lab/web scripts/*.mjs package.json .github/workflows/*.yml",
-    "format:check": "prettier --check promo_lab/web scripts/*.mjs package.json .github/workflows/*.yml",
+    "format": "prettier --write promo_lab/web scripts/*.mjs package.json",
+    "format:check": "prettier --check promo_lab/web scripts/*.mjs package.json",
     "test:browser": "node scripts/browser_smoke.mjs && node scripts/experiment_smoke.mjs && node scripts/simulation_smoke.mjs"
   },
   "devDependencies": {

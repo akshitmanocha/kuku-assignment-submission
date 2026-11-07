@@ -34,7 +34,7 @@ The generator verifies the page count when pypdf is installed. Inspect the rende
 | Deliverable | Intended handling |
 | --- | --- |
 | `output/pdf/promo-lab-solution.pdf` | Two-page private solution document |
-| `output/promo-lab-source.zip` | Source, original fiction, docs, tests and workflow configuration; no credentials or collected data |
+| `output/promo-lab-source.zip` | Source, original fiction, docs and tests; no credentials or collected data |
 | `output/submission-private.zip` | Source archive, solution PDF and unedited private editorial outputs |
 | `output/SYNTHETIC-feedback-demo.zip`, if generated | Optional supplementary simulator evidence; explicitly synthetic, not real engagement results |
 

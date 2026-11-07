@@ -6,8 +6,7 @@ Local verification completed on **7 November 2026**. These checks concern the wo
 | --- | --- |
 | Python unit tests | 74 passed, covering parsing, source validation, provider mocks, real-event contracts and simulator isolation |
 | Ruff lint and formatting | Passed for application, scripts and tests |
-| Frontend syntax and Prettier | Passed for JavaScript, HTML, CSS and workflow configuration |
-| Workflow structure and expressions | Passed independent actionlint 1.7.12 validation; referenced official action tags exist |
+| Frontend syntax and Prettier | Passed for JavaScript, HTML and CSS |
 | Isolated HTTP checks | Passed: private-file denial, host/origin checks, malformed inputs, fresh upload, polling and exports |
 | Editorial browser flow | Passed: source inspection, filters, coverage, quality, history, new analyses, upload, download and mobile layout |
 | Reading browser flow | Passed: consent, randomized cards, reload censoring, continuation, offline retry, test export exclusion, shared-device reset and deletion |
@@ -32,8 +31,6 @@ These counts are historical run evidence, not a new full-pack inference performe
 
 ## Scope of the checks
 
-GitHub Actions is configured for Python 3.10/3.13 and browser checks after push, pull request or manual dispatch. Its underlying commands pass locally, and independent actionlint validation passes. Current hosted results are available in the repository's [Actions tab](https://github.com/akshitmanocha/kuku-assignment-submission/actions/workflows/checks.yml).
-
-The completed prototype and polished README are now on the public `main` branch. During the initial handoff, hosted runs ended with `startup_failure` before creating any jobs. After publication, the [main-branch run](https://github.com/akshitmanocha/kuku-assignment-submission/actions/runs/42333214090) registered all three jobs, but GitHub blocked them before execution because of an account-level restriction. Hosted CI has therefore not passed. Local validation and hosted results are recorded separately; the live Actions page provides the current status. The runner is pinned to Ubuntu 24.04 for consistent browser dependencies.
+Verification is local. Hosted automation has been removed from the repository; the complete tests and browser checks remain available through the documented commands. No hosted test pass is claimed.
 
 No new external model inference, remote deployment, real-audience model training or applicant-narrated video was performed as part of this verification. The source and private submission archives exclude real participant data. Synthetic outcomes are separately labeled and do not prove customer preferences.

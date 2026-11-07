@@ -32,7 +32,7 @@ def package(run: Path, pdf: Path):
             ".env.example",
         ]
     ]
-    for folder in ["promo_lab", "scripts", "tests", "docs", ".github"]:
+    for folder in ["promo_lab", "scripts", "tests", "docs"]:
         allowed.extend(
             p
             for p in (ROOT / folder).rglob("*")

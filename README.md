@@ -1,7 +1,5 @@
 # Promo Lab
 
-[![Checks](https://github.com/akshitmanocha/kuku-assignment-submission/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/akshitmanocha/kuku-assignment-submission/actions/workflows/checks.yml)
-
 Promo Lab reads a timestamped screenplay and finds short sections that could work as advertisements. For each recommendation, it shows the episode, exact start and end points, opening hook, unresolved ending, and the reason for choosing it.
 
 This is my submission for **Kuku's “Find the Promos” problem**. The goal is to give an editor a useful shortlist and enough evidence to judge each cut. The project also includes a small reading experiment and a separate simulation of learning from audience feedback.
@@ -20,8 +18,8 @@ The screenshot uses the included fictional example and the offline scorer.
 You need **Python 3.10+**. The basic demo needs no API key or additional packages.
 
 ```bash
-git clone https://github.com/akshitmanocha/kuku-assignment-submission.git
-cd kuku-assignment-submission
+git clone https://github.com/akshitmanocha/promo-lab.git
+cd promo-lab
 python3 -m promo_lab run promo_lab/examples --output output/runs/original-demo
 python3 -m promo_lab serve
 ```
@@ -36,24 +34,39 @@ python3 -m promo_lab run path/to/scripts.zip --output output/runs/my-run
 
 TXT files, folders and ZIP archives are supported. The [input guide](docs/INPUT_FORMAT.md) explains the format. The app runs on your computer; it is not a hosted website.
 
-## How it works
+## The approach
 
-```mermaid
-flowchart TD
-    A[Read scripts and timestamps] --> B[Find possible 20–60-second cuts]
-    B --> C[Check source boundaries and assess each candidate]
-    C --> D[Rank candidates and return a shortlist]
-    D --> E[Collect real reading feedback in a text-card feed]
-    D --> F[Demonstrate learning with separate synthetic responses]
-```
+The project follows three stages: find promising promos, collect feedback, and use that feedback to improve selection. Script analysis and the reading experiment work on real inputs. The learning loop is currently demonstrated with synthetic responses, so it can be inspected without claiming customer results we have not measured.
 
-**Finding the promos.** The parser keeps dialogue, actions and timestamps tied to their source. Rules generate possible cuts, and an optional LLM proposes and assesses candidates. Code checks duration, source references, chronological order and whether a boundary cuts through dialogue. Candidates are ranked on hook, clarity, stakes, progression, cliffhanger and cut quality. Similar overlapping cuts are grouped before selecting the requested top 1%, subject to quality checks.
+![Three-part approach: find source promos, collect real reading feedback, and demonstrate improved selection with synthetic responses](docs/images/approach-overview.png)
 
-**Collecting feedback.** In **Reading experiment**, a participant sees six ordinary story cards and one randomly chosen promo. With consent, the app records reading time, visible text, skips and “Keep reading” clicks. Repeated views remain separate records; missing responses are not treated as failures. This collects reading behavior, not video engagement. See the [experiment guide](docs/EXPERIMENT.md).
+### 1. Find promising promos in the scripts
 
-**Showing the learning loop.** In **Synthetic demo**, generated responses train a small model that estimates a success probability for each promo. It starts with random choices, then gradually moves to 80% choosing the estimated best candidate and 20% exploring. The model updates daily and is compared with a random control. Try fixed preferences, equal preferences and changing trends. These are explicitly synthetic results, kept separate from real responses. See the [simulation guide](docs/SYNTHETIC_DEMO.md).
+The parser reads each episode's dialogue, actions and timestamps while keeping the original source references. Rules search for possible 20–60-second intervals. With an LLM configured, the model also proposes cuts and then assesses a finalist using only the selected dialogue and actions, without the episode summary.
 
-The current learning model uses candidate identity and success/failure counts. A text embedding model trained on substantial real feedback is a later step. The [current architecture](docs/ARCHITECTURE.md) and [future ML design](ML_ARCHITECTURE.md) explain the distinction.
+The assessment asks six questions: does the opening grab attention, can a newcomer understand it, are the stakes clear, does the scene progress, does the ending leave a meaningful question, and is the cut usable? Each receives a 0–3 editorial score. These estimates help decide what to test first.
+
+Code checks the things a model should not be trusted to get right by itself: source IDs, timestamps, duration, segment order and whether either cut interrupts dialogue. Overlapping variants are grouped, and the default shortlist targets the top 1% of distinct valid candidates. It can return fewer if the quality checks fail. Editors can inspect the source, scores, reasons and rejected candidates in the app.
+
+### 2. Collect feedback from people
+
+The **Reading experiment** places one randomly chosen promo among six ordinary text stories. Participants can skip, go back or click **Keep reading**. After consent, the app records active reading time, visible text and continuation choices, with one record for each actual promo exposure.
+
+In the exported dataset, **X** describes the promo and the situation before it was shown: its source details, position in the feed and previous exposure count. **Y** records what happened afterward. The main reading target requires a continuation click, at least 15 active seconds reading the continuation and at least 75% of its text units seen.
+
+The same promo can produce different responses from different people; those are separate observations. A promo that was never reached does not become a failed example. Interrupted visits keep unknown outcomes rather than silently turning them into zeroes. This is a text-reading pilot; video engagement needs a later experiment with actual footage. See the [experiment guide](docs/EXPERIMENT.md).
+
+### 3. Learn from feedback and improve selection
+
+The **Synthetic demo** makes this loop runnable before enough real responses exist. It generates a separate, clearly labeled dataset, uses random cold-start examples to fit a small model, and estimates the chance of successful continuation for each promo. The current model uses successes and failures per candidate (a Beta-Bernoulli model); it does not yet learn from script embeddings.
+
+![Synthetic feedback loop: random cold start, success estimates, 80/20 selection after warm-up, daily updates, and a separate random control](docs/images/feedback-loop.png)
+
+After warm-up, 80% of selection opportunities use the candidate with the highest current estimate and 20% choose randomly. Exploration starts higher and falls to 20% by simulated day five. New feedback updates the estimates daily, with less weight given to older observations. A separate random-control group provides the comparison, while held-out responses check prediction quality. Control and validation data never train the model.
+
+The three scenarios cover fixed preferences, equal preferences and changing trends. They show where the loop can help and where it can struggle. The assumed preferences and generated outcomes are disclosed; real customer preferences are not inferred from the simulation. See the [simulation guide](docs/SYNTHETIC_DEMO.md).
+
+A later live system would train on mature real feedback, evaluate an updated model and introduce it through a controlled rollout. Hosting, real-audience model training and automatic model promotion remain future work. The [current architecture](docs/ARCHITECTURE.md) describes what runs today; the [future ML design](ML_ARCHITECTURE.md) covers the embedding-based model and production evaluation.
 
 ## Use an LLM
 
@@ -101,17 +114,45 @@ npm run format:check
 PLAYWRIGHT_CHANNEL=chromium python3 scripts/run_http_checks.py --browser
 ```
 
-The browser checks use a temporary server and database, so they do not change saved participant data. GitHub Actions runs the checks on pushes and pull requests. Details are in [CONTRIBUTING.md](CONTRIBUTING.md) and the [verification record](docs/VALIDATION.md).
+All checks run locally. The browser checks use a temporary server and database, so they do not change saved participant data. Details are in [CONTRIBUTING.md](CONTRIBUTING.md) and the [verification record](docs/VALIDATION.md).
 
-## Code and documentation
+## Repository structure
 
-- `promo_lab/` — parser, candidate selection, provider adapters, experiments and simulation.
-- `promo_lab/web/` — the HTML, CSS and JavaScript interface; no frontend build step.
-- `promo_lab/examples/` — original public fiction for trying the project.
-- `tests/` — parsing, model-output validation, event logging and simulation tests.
-- `scripts/` — audits, browser checks, document generation and packaging.
+```text
+promo-lab/
+├── promo_lab/                  Python application package
+│   ├── __main__.py             Entry point for python -m promo_lab
+│   ├── cli.py                  Commands and environment configuration
+│   ├── domain.py               Parse screenplays, timestamps and ZIP inputs
+│   ├── pipeline.py             Generate, validate, score and rank candidate cuts
+│   ├── providers.py            Swappable model API adapters and response caching
+│   ├── experiment_content.py   Build text cards and source continuations
+│   ├── experiments.py          Real interaction logging, labels and reports
+│   ├── simulations.py          Synthetic responses and the learning demo
+│   ├── web/                    HTML, CSS and JavaScript interface
+│   └── examples/               Original public screenplay for trying the app
+├── tests/                      Parsing, validation, feedback and simulation tests
+├── scripts/                    Local checks, audits and submission packaging
+├── docs/                       Architecture, setup, measurement and solution notes
+├── pyproject.toml              Python package and optional development dependencies
+├── package.json                Optional frontend formatting and browser-test tools
+├── Makefile                    Shortcuts for running, checking and packaging
+└── .env.example                Model configuration template, without credentials
+```
 
-The app saves analyses, model caches, real interactions and synthetic runs separately under `output/`. That directory and `.env` are ignored by Git. Supplied Kuku scripts, participant responses and API keys are not included in the public source.
+**Why `promo_lab`?** It is the importable Python name for **Promo Lab**, the project's name. The underscore lets it be used as a normal Python package, which is why the command is `python -m promo_lab`. The application code lives in that directory.
+
+Generated files stay separate under the Git-ignored `output/` directory:
+
+| Folder | What it contains |
+| --- | --- |
+| `output/runs/` | Analyses, source references, raw model responses and audit manifests |
+| `output/provider_cache/` | Cached model requests and responses |
+| `output/experiments/` | Real participant interaction database |
+| `output/simulations/` | Labeled synthetic responses, model snapshots and reports |
+| `output/pdf/` | Generated solution document |
+
+The `.env` file, supplied Kuku scripts, private outputs and participant responses are excluded from the public repository.
 
 For the assignment materials, see the [solution notes](docs/SOLUTION.md), [submission guide](docs/SUBMISSION.md) and [short walkthrough outline](docs/WALKTHROUGH.md).
 

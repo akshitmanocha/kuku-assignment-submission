@@ -28,4 +28,4 @@ Open Synthetic demo. Point out its explicit synthetic label. Show cold-start fit
 
 ## 2:40–2:55: reproducibility and next steps
 
-Show the README, saved model/raw output export and the automated checks configuration. Real-audience training, controlled production rollout and contrastive encoder adaptation are future stages. Finish with the source review and private output bundle ready for submission.
+Show the README, saved model/raw output export and the local test commands. Real-audience training, controlled production rollout and contrastive encoder adaptation are future stages. Finish with the source review and private output bundle ready for submission.

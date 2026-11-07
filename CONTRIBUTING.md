@@ -22,18 +22,13 @@ python3 scripts/run_http_checks.py
 PLAYWRIGHT_CHANNEL=chromium python3 scripts/run_http_checks.py --browser
 ```
 
-Use `make format` after editing Python, JavaScript, CSS, HTML or workflow files. Python formatting/linting is pinned to Ruff 0.15.1; optional frontend dependencies are locked in `package-lock.json`. Browser checks use Playwright and the chosen browser channel. The default channel is system Chrome; set `PLAYWRIGHT_CHANNEL=chromium` after installing Playwright's Chromium. `PLAYWRIGHT_MODULE` can point to an already installed Playwright module.
+Use `make format` after editing Python, JavaScript, CSS or HTML files. Python formatting/linting is pinned to Ruff 0.15.1; optional frontend dependencies are locked in `package-lock.json`. Browser checks use Playwright and the chosen browser channel. The default channel is system Chrome; set `PLAYWRIGHT_CHANNEL=chromium` after installing Playwright's Chromium. `PLAYWRIGHT_MODULE` can point to an already installed Playwright module.
 
 The isolated HTTP/browser wrapper creates its own temporary data directory and port, uses only public fiction, and always terminates its server. It does not load the repository's `.env` or touch the live experiment SQLite database. The individual smoke scripts instead target `PROMO_TEST_URL` (default localhost:8765); use the wrapper when protecting existing data matters. Browser screenshots are generated under ignored `tmp/screenshots/`.
 
-## GitHub Actions
+## Local verification
 
-`.github/workflows/checks.yml` runs on pushes, pull requests or a manual dispatch:
-
-- Python 3.10 and 3.13: lint, formatting, unit tests, source hygiene, original-demo audit and isolated HTTP checks.
-- Browser job: locked development dependencies, Chromium, frontend formatting and isolated desktop/mobile browser checks.
-
-The workflow uses read-only repository permissions. It requires no API keys, confidential scripts, saved full-pack runs or live participant data. It does not deploy, train a real-audience model, publish artifacts or run a scheduled retraining job. A successful local check does not mean a workflow has already run on GitHub; it starts after the source is pushed there.
+Checks are run locally using the commands above. The isolated runner starts its own server and database and removes them after the checks finish. There is no hosted automation dependency for developing, running or reviewing the prototype.
 
 ## Data and implementation boundaries
 
