@@ -35,11 +35,21 @@ The [public PDF](promo-lab-solution.pdf) keeps the aggregate results and omits p
 
 Use the [Promo Lab repository](https://github.com/akshitmanocha/promo-lab) as the prototype link. It opens a saved Nemotron run on original fiction after local launch. For the required raw outputs, use the unedited files in `output/runs/full-pack-qwen/` or the `raw-outputs/` folder in the private bundle. Share those files only through the assignment's authorized submission channel.
 
+To prepare a single ZIP for authorized reviewers on Drive, include the supplied episode pack explicitly:
+
+```bash
+python3 scripts/package_submission.py --run output/runs/full-pack-qwen \
+  --input-pack "/path/to/local-screenplays-scripts.zip"
+```
+
+The Drive ZIP has a top-level `README.md`, the runnable project, `solution.pdf`, and the episode files under `episodes/`. It puts the unchanged run in `output/runs/full-pack-qwen/` so the app can open it directly. The packager checks that every episode matches the saved run.
+
 | Deliverable | Intended handling |
 | --- | --- |
 | `output/pdf/promo-lab-solution.pdf` | Two-page private solution document |
 | `output/promo-lab-source.zip` | Source, original fiction, docs and tests; no credentials or collected data |
 | `output/submission-private.zip` | Source archive, solution PDF and unedited private editorial outputs |
+| `output/promo-lab-kuku-submission.zip` | Private Drive ZIP with the runnable project, both PDF editions, the supplied episodes and the unedited run |
 | `output/SYNTHETIC-feedback-demo.zip`, if generated | Optional supplementary simulator evidence; explicitly synthetic, not real engagement results |
 
 Real participant data is excluded from all standard submission archives. Synthetic responses are also excluded from the standard source/private archives; use a separately labeled supplement if useful. Existing supplemental archives must be regenerated deliberately after changing simulator logic.

@@ -50,8 +50,8 @@ def check():
     for name in result.stdout.decode().split("\0"):
         path = Path(name)
         if name and (
-            name == ".env"
-            or name.startswith(("output/", "tmp/", "node_modules/"))
+            name in {".env", "solution.pdf"}
+            or name.startswith(("episodes/", "output/", "tmp/", "node_modules/"))
             or name.endswith("-scripts.zip")
             or (path.suffix == ".pdf" and path.name.startswith("Kuku"))
         ):

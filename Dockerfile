@@ -5,7 +5,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 COPY promo_lab/ ./promo_lab/
-RUN install -d -o 10001 -g 10001 /app/output
+RUN chmod -R a+rX /app/promo_lab \
+    && install -d -o 10001 -g 10001 /app/output
 
 USER 10001:10001
 

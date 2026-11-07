@@ -28,6 +28,8 @@ test-results/
 # Confidential assignment inputs and generated/participant data
 *-scripts.zip
 Kuku*Assignment.pdf
+/episodes/
+/solution.pdf
 output/
 tmp/
 *.sqlite3-journal

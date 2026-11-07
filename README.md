@@ -4,7 +4,7 @@ A local tool for finding 20–60-second promos in microdrama screenplays. It was
 
 ## Start here
 
-Clone the project and choose Python or Docker. Open **http://127.0.0.1:8765** to follow the three numbered steps in the app. The bundled fictional screenplay and its saved Nemotron analysis let you review a real AI critique without an API key.
+If you downloaded a submission ZIP, extract it and open a terminal in the folder containing this README. If you are starting from GitHub, clone the repository and enter it.
 
 ```bash
 git clone https://github.com/akshitmanocha/promo-lab.git
@@ -13,11 +13,13 @@ cd promo-lab
 
 ### With Python
 
-Use Python 3.10 or newer. On Windows, use `py` in place of `python3` if needed.
+Use Python 3.10 or newer. On Windows, use `py` in place of `python3` if needed. The local app has no required packages to install and runs without an API key.
 
 ```bash
 python3 -m promo_lab serve
 ```
+
+Leave the terminal running and open [Promo Lab on this computer](http://127.0.0.1:8765). Press **Ctrl+C** in the terminal to stop it. If port 8765 is already in use, start with `python3 -m promo_lab serve --port 8766` and open [port 8766](http://127.0.0.1:8766).
 
 ### With Docker
 
@@ -28,13 +30,27 @@ docker build -t promo-lab .
 docker run --rm --init -p 127.0.0.1:8765:8765 -v promo-lab-data:/app/output promo-lab
 ```
 
-To try your own script, open **New analysis**, choose **Paste screenplay text**, and paste the contents of a timestamped `.txt` file. Choose **Offline editorial baseline** to process it locally. For optional AI settings, alternate ports and working with the Docker volume, see the [Docker guide](docs/DOCKER.md).
+Open [Promo Lab on this computer](http://127.0.0.1:8765) after the container starts. For optional AI settings, alternate ports and working with the Docker volume, see the [Docker guide](docs/DOCKER.md).
 
-## Where to go in the app
+## Walk through the three stages
 
-1. **Find promo candidates.** Open the saved AI example and inspect the recommended cut, its timestamps, and the source lines behind the critique.
-2. **Collect reading feedback.** Create a study with the original public demo. Choose **Software test only** when trying the participant feed yourself, then return to the study report.
-3. **Simulate online learning.** Keep the default demo candidates and choose **Generate synthetic responses + train**. Check the daily policy comparison and the learned estimate per promo.
+### 1. Find promo candidates
+
+1. Open **Find promo candidates**. From **Run history**, you can select **Original fiction · saved AI example** to inspect a saved Nemotron critique. Select the cut and check its opening, ending, score and source timestamps.
+2. To run a new analysis, open **New analysis**. Select the original demo, paste the contents of one timestamped `.txt` file, or upload TXT or ZIP files. Choose **Offline editorial baseline** to process locally, then select **Analyze screenplays**.
+3. Use **Quality report** to compare the selected cuts with a simple 30-second rule. Use **Export run** to download the results. To generate a new LLM critique, configure an authorized model provider first. [Input format](docs/INPUT_FORMAT.md) · [Model setup](docs/PROVIDERS.md)
+
+### 2. Collect reading feedback
+
+1. Open **Collect reading feedback**. Select **Original public demo · 3 variants**, enter a study name and choose **Create study**. Tick **Software test only** if you are trying the feed yourself.
+2. Open the **Participant link** on the same computer. Consent, select **Start reading**, and use **Next story** and **Keep reading** to interact with the cards. Select **Finish session** when done.
+3. Return to the study and select **Refresh data**. The report shows exposures, reading time and continuation outcomes. Software-test sessions can be inspected through the event export. For an actual consented pilot, create a separate study and use its training export. [Reading experiment guide](docs/EXPERIMENT.md)
+
+### 3. Simulate online learning
+
+1. Open **Simulate online learning**. Leave **Original public demo** and **Different candidate appeal** selected, then click **Generate synthetic responses + train**. The default run uses seed 42 and 14 simulated days.
+2. Compare the learning policy with the random control in the chart, then open **Daily updates and randomized comparison**. The model learns one continuation estimate per promo from synthetic responses. Exploration reaches 20% by day five.
+3. Try **No signal** or **Changing trends** to see how the policy behaves under different assumptions. Download the synthetic results or model snapshot from the report. [Simulation guide](docs/SYNTHETIC_DEMO.md)
 
 | Start here | What to look for |
 | --- | --- |
