@@ -1,0 +1,5 @@
+output/
+tmp/
+node_modules/
+*.zip
+*.pdf

@@ -1,0 +1,92 @@
+EPISODE NUMBER: Episode 1
+EPISODE LOGLINE: Original public demo written for this prototype: a daughter discovers a forged transfer.
+CONTINUITY NOTES: Standalone fictional example. This is not Kuku's supplied content.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: INT. FAMILY OFFICE - NIGHT
+Scene start: 00:00.00
+Scene end: 01:20.00
+
+**MARA (Accusing):**
+Start: (00:00.00) | End: (00:02.80)
+"You sold our house?"
+
+**ACTION:**
+Start: (00:00.00) | End: (00:04.00)
+Mara slams a signed property transfer onto her brother's desk. The signature bears their mother's name.
+
+**CAMERA:**
+Start: (00:00.00) | End: (00:05.00)
+Close-up of the transfer, then the brother's startled face.
+
+**ELI (Defensive):**
+Start: (00:04.00) | End: (00:08.00)
+"Someone had to pay for Mother's treatment."
+
+**MARA (Shaken):**
+Start: (00:09.00) | End: (00:14.00)
+"The hospital says her treatment was paid for last month."
+
+**ELI (Quiet):**
+Start: (00:15.00) | End: (00:19.00)
+"Then the hospital is lying to you."
+
+**ACTION:**
+Start: (00:19.00) | End: (00:22.00)
+Mara turns the document over. A second signature is hidden beneath a folded corner.
+
+**MARA (Demanding):**
+Start: (00:22.00) | End: (00:26.00)
+"Who is the witness? Why is the name blacked out?"
+
+**ELI (Threatening):**
+Start: (00:27.00) | End: (00:31.00)
+"If you uncover that name, Mother will disappear."
+
+**ACTION:**
+Start: (00:31.00) | End: (00:35.00)
+Mara's phone lights up with a call from her mother's number. Eli reaches for it.
+
+**MARA (Alarmed):**
+Start: (00:35.00) | End: (00:38.00)
+"Why are you afraid of her calling?"
+
+**ELI (Urgent):**
+Start: (00:39.00) | End: (00:43.00)
+"Do not answer that phone."
+
+**ACTION:**
+Start: (00:43.00) | End: (00:47.00)
+Mara locks the office door and answers on speaker. A stranger is breathing on the other end.
+
+**STRANGER (Low):**
+Start: (00:48.00) | End: (00:52.00)
+"Ask your brother what he really sold."
+
+**MARA (Horrified):**
+Start: (00:53.00) | End: (00:56.00)
+"Where is my mother?"
+
+**ACTION:**
+Start: (00:56.00) | End: (01:00.00)
+Eli pulls a key from his pocket and slides it under a locked cabinet.
+
+**ELI (Resigned):**
+Start: (01:01.00) | End: (01:05.00)
+"She made me promise you would never open it."
+
+**MARA (Defiant):**
+Start: (01:06.00) | End: (01:09.00)
+"Then she should have told me the truth."
+
+**ACTION:**
+Start: (01:10.00) | End: (01:15.00)
+Mara takes the key. From inside the cabinet comes a single sharp knock.
+
+**MARA (Whispering):**
+Start: (01:16.00) | End: (01:20.00)
+"Who is in there?"
+
+--- SCRIPT END ---

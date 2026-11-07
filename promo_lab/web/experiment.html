@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#151b19" />
+    <title>Story break · Reading pilot</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/experiment.css" />
+    <script src="/experiment.js" defer></script>
+  </head>
+  <body>
+    <main id="welcome" class="welcome">
+      <div class="wordmark">
+        STORY<span>BREAK</span><span class="wordmark-dot">.</span>
+      </div>
+      <div class="welcome-kicker">A FEW STORIES. YOUR OWN PACE.</div>
+      <h1>A little break<br />from the scroll.</h1>
+      <p class="welcome-intro">
+        Browse a short feed of fictional stories. Skip whenever you want. If a
+        story catches your interest, keep reading.
+      </p>
+      <div class="consent-box">
+        <h2 id="study-name">Reading pilot</h2>
+        <p id="consent-text">Loading study information…</p>
+        <p>
+          There are no ratings, right answers, or minimum reading times. You can
+          leave at any point.
+        </p>
+        <label class="consent-check"
+          ><input type="checkbox" id="consent" /> I agree to this anonymous
+          interaction logging.</label
+        >
+      </div>
+      <button class="primary" id="begin" disabled>Start reading ↗</button>
+      <p class="welcome-foot">
+        Text only · Fictional stories · No account required
+      </p>
+      <div id="welcome-error" class="notice" role="alert" hidden></div>
+    </main>
+
+    <section id="experience" hidden aria-label="Story feed">
+      <header class="feed-header">
+        <a class="wordmark" href="#"
+          >STORY<span>BREAK</span><span class="wordmark-dot">.</span></a
+        ><span id="sync-status" role="status">Saved locally</span
+        ><button id="exit" class="quiet">Finish session</button>
+      </header>
+      <div class="feed-caption">
+        <span>Read what moves you.</span><span>Swipe or use the arrows ↓</span>
+      </div>
+      <div
+        id="feed"
+        class="feed"
+        tabindex="0"
+        aria-label="Swipeable story cards"
+      ></div>
+      <nav class="feed-nav" aria-label="Move through stories">
+        <button id="previous" class="secondary" aria-label="Previous story">
+          ↑ Previous</button
+        ><span id="position" aria-live="polite">1 / 7</span
+        ><button id="next" class="secondary">Next story ↓</button>
+      </nav>
+      <div class="session-tools">
+        <span>Reading interactions only · You can skip freely.</span
+        ><button id="withdraw" class="text-button">Delete my session</button>
+      </div>
+      <div id="feed-error" class="feed-notice" role="alert" hidden></div>
+    </section>
+
+    <dialog id="reader" aria-labelledby="reader-title">
+      <div class="reader-head">
+        <div>
+          <div class="reader-kicker">THE STORY CONTINUES</div>
+          <h2 id="reader-title"></h2>
+        </div>
+        <button id="close-reader" class="secondary">Back to feed ×</button>
+      </div>
+      <div id="reader-body" class="reader-body"></div>
+      <p class="reader-note">
+        Read at your own pace. Returning to the feed does not require finishing.
+      </p>
+    </dialog>
+
+    <section id="finish" class="welcome finish" hidden>
+      <div class="wordmark">
+        STORY<span>BREAK</span><span class="wordmark-dot">.</span>
+      </div>
+      <div class="welcome-kicker">THANK YOU FOR YOUR TIME</div>
+      <h1 id="finish-title">Your story break<br />is complete.</h1>
+      <p id="finish-copy" class="welcome-intro">
+        Your anonymous reading interactions have been saved. No preferences or
+        engagement scores were invented.
+      </p>
+      <p id="finish-sync" class="notice" role="status"></p>
+      <button id="finish-withdraw" class="secondary">
+        Delete my session data
+      </button>
+    </section>
+  </body>
+</html>
