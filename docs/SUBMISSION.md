@@ -29,7 +29,7 @@ python3 scripts/build_solution_pdf.py --run output/runs/full-pack-qwen
 python3 scripts/package_submission.py --run output/runs/full-pack-qwen
 ```
 
-The generator verifies the two-page limit before replacing the previous PDF. Inspect both rendered pages before submission. Page one explains the approach and includes the approved overview diagram. Page two covers the saved-run evidence, an observed model error, limitations, scaling and AI tools used.
+The generator verifies the two-page limit before replacing the previous PDF. Inspect both rendered pages before submission. Page one explains the approach and scaling plan with the architecture overview. Page two shows the feedback-loop diagram, saved-run evidence, an observed model error, limitations and AI tools used.
 
 | Deliverable | Intended handling |
 | --- | --- |

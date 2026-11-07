@@ -138,13 +138,27 @@ def build(run_dir: Path, output: Path) -> None:
     )
     story.append(
         p(
-            "<b>3. Test the learning loop.</b> A separate simulator generates labeled responses under stated assumptions. Fit a success estimate per promo from successes and failures. After warm-up, select the estimated best candidate 80% of the time and explore randomly 20% of the time. Update daily, giving older feedback less weight. Compare with a separate random control and check prediction quality on held-out responses. This demonstrates how the loop runs under simulated preferences."
+            "<b>3. Test the learning loop.</b> A separate simulator generates labeled responses. Estimate each promo's success from its successes and failures. After warm-up, choose the current best 80% of the time and explore randomly 20% of the time. Update daily, giving older feedback less weight. Compare with a random control and check predictions on held-out responses."
+        )
+    )
+    heading("How it would scale")
+    story.append(
+        p(
+            "Process episodes in parallel, cache by source, prompt and model, and prune similar cuts before critique. Track uncached token use, cost and coverage per show. Collect feedback on real footage, evaluate on later data and compare the updated policy with a randomized control before rollout."
         )
     )
 
     story.append(PageBreak())
     story.append(p("FULL-PACK RUN / EVALUATION / SCALING", small=True))
-    story.append(Paragraph("Results and tradeoffs", styles["TitleLab"]))
+    story.append(Paragraph("Feedback loop and results", styles["TitleLab"]))
+    story.append(
+        Image(
+            str(ROOT / "docs/images/feedback-loop.png"),
+            width=175 * mm,
+            height=99 * mm,
+            kind="proportional",
+        )
+    )
     heading("What I checked")
     usage = [(entry.get("response") or {}).get("usage", {}) for entry in result["model_journal"]]
     tokens = sum(item.get("total_tokens", 0) for item in usage)
@@ -165,7 +179,6 @@ def build(run_dir: Path, output: Path) -> None:
             if result["mode"] != "offline"
             else f"{summary['shortlisted']} selected by the offline rules",
         ],
-        ["Inference", result["model"] or "Offline rules"],
         [
             "Model usage",
             f"{summary['ai_calls']} logical calls ({uncached} uncached) and {tokens:,} reported tokens, including cached responses",
@@ -191,8 +204,8 @@ def build(run_dir: Path, output: Path) -> None:
                 ("VALIGN", (0, 0), (-1, -1), "TOP"),
                 ("LEFTPADDING", (0, 0), (-1, -1), 8),
                 ("RIGHTPADDING", (0, 0), (-1, -1), 8),
-                ("TOPPADDING", (0, 0), (-1, -1), 5),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+                ("TOPPADDING", (0, 0), (-1, -1), 3),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
                 ("LINEBELOW", (0, 0), (-1, -1), 0.35, colors.HexColor("#dde2d5")),
             ]
         )
@@ -201,7 +214,7 @@ def build(run_dir: Path, output: Path) -> None:
     story.append(Spacer(1, 6))
     story.append(
         p(
-            "The audit rechecks source intervals and artifact hashes. The baseline takes about 30 seconds from each episode's first spoken line without adjusting the cut. Comparing that baseline with the filtered shortlist checks boundary enforcement. Measuring audience preference would require a separate controlled study."
+            "The audit rechecks source intervals and artifact hashes. The baseline starts at each episode's first spoken line and takes about 30 seconds. This comparison checks cut boundaries. Audience preference requires a controlled study."
         )
     )
     if result.get("partial"):
@@ -270,17 +283,10 @@ def build(run_dir: Path, output: Path) -> None:
         )
     )
 
-    heading("How it would scale")
-    story.append(
-        p(
-            "Process episodes in parallel and cache by source, prompt and model. Prune near-duplicate cuts before spending tokens on critique. Track uncached token use, cost and episode coverage per show. For audience learning, collect feedback on real footage, evaluate later data, and compare the updated policy with a randomized control before rollout."
-        )
-    )
-
     heading("AI tools used")
     story.append(
         p(
-            f"Codex assisted implementation, tests and writing. The reported run used {clean(result['model'] or 'offline rules')}. OpenRouter Nemotron was checked on the original public example. ImageGen created the approach diagram. Saved run {clean(run_dir.name)}.",
+            f"Codex assisted implementation, tests and writing. The reported run used {clean(result['model'] or 'offline rules')}. OpenRouter Nemotron was checked on the original public example. ImageGen created both diagrams. Saved run {clean(run_dir.name)}.",
             small=True,
         )
     )
