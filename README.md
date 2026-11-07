@@ -29,14 +29,14 @@ docker build -t promo-lab .
 docker run --rm --init -p 127.0.0.1:8765:8765 -v promo-lab-data:/app/output promo-lab
 ```
 
-Use **New analysis** to upload a TXT or ZIP from your computer. For optional AI settings, alternate ports and working with the Docker volume, see the [Docker guide](docs/DOCKER.md).
+To try your own script, open **New analysis**, choose **Paste screenplay text**, and paste the contents of a timestamped `.txt` file. Choose **Offline editorial baseline** to process it locally. For optional AI settings, alternate ports and working with the Docker volume, see the [Docker guide](docs/DOCKER.md).
 
 ## Where to go in the app
 
 | Start here | What to look for |
 | --- | --- |
 | **Discover promos** | Pick a recommendation and inspect its episode, timestamps, hook, ending and source text. |
-| **New analysis** | Run the included example or upload your own scripts. See the [input format](docs/INPUT_FORMAT.md) and [model setup](docs/PROVIDERS.md). |
+| **New analysis** | Run the included example, paste screenplay text, or upload TXT or ZIP files. See the [input format](docs/INPUT_FORMAT.md) and [model setup](docs/PROVIDERS.md). |
 | **Episode library** and **Quality report** | Check coverage, compare boundary checks with the baseline and inspect rejected cuts. |
 | **Run history** | Reopen a previous analysis and export its shortlist or raw outputs. |
 | **Reading experiment** | Create a text-card study, open its participant link and export real reading outcomes. See the [experiment guide](docs/EXPERIMENT.md). |
@@ -53,6 +53,6 @@ Use **New analysis** to upload a TXT or ZIP from your computer. For optional AI 
 | [`tests/`](tests/) and [`scripts/`](scripts/) | Local tests, audits, PDF generation and submission packaging. |
 | [`docs/`](docs/) | Approach, architecture diagrams, experiment details and setup guides. |
 
-The [architecture notes](docs/ARCHITECTURE.md) have the diagrams. The two-page solution PDF explains the approach and results, with file locations in the [submission guide](docs/SUBMISSION.md). Use the [development guide](CONTRIBUTING.md) for local checks.
+The [two-page solution PDF](docs/promo-lab-solution.pdf) explains the approach and results. See the [architecture notes](docs/ARCHITECTURE.md) for the diagrams, the [submission guide](docs/SUBMISSION.md) for deliverables, and the [development guide](CONTRIBUTING.md) for local checks.
 
 Python runs save generated files under `output/`. Docker runs use the named volume. Keep `.env`, the supplied Kuku scripts and private results in your local workspace.

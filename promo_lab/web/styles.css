@@ -30,7 +30,8 @@ body {
 }
 button,
 input,
-select {
+select,
+textarea {
   font: inherit;
 }
 button,
@@ -50,6 +51,7 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 select:focus-visible,
+textarea:focus-visible,
 summary:focus-visible {
   outline: 3px solid var(--purple);
   outline-offset: 3px;
@@ -950,7 +952,8 @@ dialog::backdrop {
   margin: 17px 0 8px;
 }
 select,
-input {
+input,
+textarea {
   border: 1px solid #d9dfd2;
   border-radius: 5px;
   padding: 10px 11px;
@@ -959,9 +962,14 @@ input {
   min-width: 0;
 }
 dialog select,
-dialog input {
+dialog input,
+dialog textarea {
   width: 100%;
   font-size: 12px;
+}
+dialog textarea {
+  font-family: var(--mono);
+  resize: vertical;
 }
 .field-hint {
   font-size: 10px;

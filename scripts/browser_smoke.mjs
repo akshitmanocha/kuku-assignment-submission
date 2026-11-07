@@ -73,6 +73,27 @@ try {
   await page.locator(".candidate-card").first().waitFor();
   await page.waitForTimeout(1500);
   await page.locator("#run-strip").waitFor({ state: "hidden", timeout: 30000 });
+  await page.locator("#new-run").click();
+  await page.locator("#source").selectOption("paste");
+  await page.locator("#provider").selectOption("offline");
+  const screenplay = await fs.readFile(
+    "promo_lab/examples/episode-001.txt",
+    "utf8",
+  );
+  await page
+    .getByLabel("Screenplay text", { exact: true })
+    .fill(
+      screenplay.replace(
+        "EPISODE NUMBER: Episode 1",
+        "EPISODE NUMBER: Episode 742",
+      ),
+    );
+  const pasteResult = page.waitForResponse(
+    (r) => /\/api\/runs\/[a-f0-9]+$/.test(r.url()) && r.ok(),
+  );
+  await page.locator("#start-run").click();
+  assert.equal((await (await pasteResult).json()).episodes[0].number, 742);
+  await page.locator(".candidate-card").first().waitFor();
   await page.setViewportSize({ width: 390, height: 844 });
   await page.screenshot({ path: "tmp/screenshots/mobile.png", fullPage: true });
   const overflow = await page.evaluate(
@@ -92,6 +113,7 @@ try {
         "method",
         "new analysis",
         "upload",
+        "paste screenplay text",
         "bundle export",
         "mobile layout",
       ],

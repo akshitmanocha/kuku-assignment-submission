@@ -1,6 +1,6 @@
 # Screenplay input format
 
-Upload UTF-8 `.txt` files, a `.zip` containing them, or pass a file/folder/archive to the CLI. ZIP contents are read without extracting arbitrary archive paths. Private inputs do not belong in a public repository.
+In **New analysis**, paste the contents of one UTF-8 `.txt` file, upload one or more `.txt` files, or upload a `.zip` containing them. The CLI also accepts a file, folder or archive. ZIP contents are read without extracting arbitrary archive paths. Choose the offline engine to keep processing on your computer.
 
 The complete original fictional input is [episode-001.txt](../promo_lab/examples/episode-001.txt). Preserve its header structure when preparing a new input:
 

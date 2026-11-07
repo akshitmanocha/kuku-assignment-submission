@@ -44,7 +44,7 @@ def clean(text: str, maximum: int = 650) -> str:
     return escape(text)
 
 
-def build(run_dir: Path, output: Path) -> None:
+def build(run_dir: Path, output: Path, *, public: bool = False) -> None:
     result = json.loads((run_dir / "result.json").read_text())
     summary, evaluation = result["summary"], result["evaluation"]
     styles = getSampleStyleSheet()
@@ -189,7 +189,7 @@ def build(run_dir: Path, output: Path) -> None:
     )
 
     shortlist = [candidate for candidate in result["candidates"] if candidate["shortlisted"]]
-    if shortlist:
+    if shortlist and not public:
         sample = min(shortlist, key=lambda candidate: candidate["duration_seconds"])
         spans = ", ".join(
             f"episode {item['episode_number']}, {item['start']} to {item['end']}"
@@ -214,7 +214,21 @@ def build(run_dir: Path, output: Path) -> None:
         ),
         None,
     )
-    if invalid_proposal:
+    if public:
+        if invalid_proposal and not invalid_proposal["validation"]["checks"]["duration"]:
+            story.append(
+                p(
+                    f"<b>Observed AI error.</b> The model suggested a {invalid_proposal['duration_seconds']:.2f}-second clip. "
+                    "The tool rejected it because a promo must last 20-60 seconds."
+                )
+            )
+        elif invalid_proposal or result["rejected_proposals"]:
+            story.append(
+                p(
+                    "<b>Observed AI error.</b> The tool rejected a proposed clip that failed validation."
+                )
+            )
+    elif invalid_proposal:
         spans = ", ".join(
             f"episode {item['episode_number']}, {item['start']} to {item['end']}"
             for item in invalid_proposal["segments"]
@@ -240,9 +254,10 @@ def build(run_dir: Path, output: Path) -> None:
     )
 
     heading("AI tools used")
+    run_note = "" if public else f" Saved run {clean(run_dir.name)}."
     story.append(
         p(
-            f"Codex assisted implementation, tests and writing. The reported run used {clean(result['model'] or 'offline rules')}. OpenRouter Nemotron was checked on the original public example. ImageGen created both diagrams. Saved run {clean(run_dir.name)}.",
+            f"Codex assisted implementation, tests and writing. The reported run used {clean(result['model'] or 'offline rules')}. OpenRouter Nemotron was checked on the original public example. ImageGen created both diagrams.{run_note}",
             small=True,
         )
     )
@@ -255,8 +270,9 @@ def build(run_dir: Path, output: Path) -> None:
         canvas.rect(0, height - 7 * mm, width, 7 * mm, fill=1, stroke=0)
         canvas.setFillColor(MUTED)
         canvas.setFont("Helvetica", 8)
+        edition = "PUBLIC SUMMARY" if public else "CONFIDENTIAL"
         canvas.drawString(
-            15 * mm, 12 * mm, "PROMO LAB / KUKU AI GENERALIST ASSIGNMENT / CONFIDENTIAL"
+            15 * mm, 12 * mm, f"PROMO LAB / KUKU AI GENERALIST ASSIGNMENT / {edition}"
         )
         canvas.drawRightString(width - 15 * mm, 12 * mm, f"{doc.page} / 2")
 
@@ -289,6 +305,8 @@ def build(run_dir: Path, output: Path) -> None:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--run", type=Path, default=ROOT / "output/runs/full-pack-qwen")
-    parser.add_argument("--output", type=Path, default=ROOT / "output/pdf/promo-lab-solution.pdf")
+    parser.add_argument("--output", type=Path)
+    parser.add_argument("--public", action="store_true", help="Omit private screenplay excerpts")
     args = parser.parse_args()
-    build(args.run, args.output)
+    default_name = "promo-lab-public.pdf" if args.public else "promo-lab-solution.pdf"
+    build(args.run, args.output or ROOT / "output/pdf" / default_name, public=args.public)

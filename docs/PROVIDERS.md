@@ -40,7 +40,7 @@ python3 -m pip install -e '.[ai]'
 Restart the app after configuring `.env`, or run:
 
 ```bash
-python3 -m promo_lab run "I Married a Broken Soldier. He was a Duke-scripts.zip" \
+python3 -m promo_lab run "/path/to/local-screenplays-scripts.zip" \
   --provider groq --output output/runs/full-pack-qwen
 ```
 

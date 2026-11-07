@@ -15,7 +15,7 @@ The audit independently rechecks source intervals, shortlist gates, duplicate ov
 If creating a new full-pack run, place the supplied archive locally (it is Git-ignored), configure the desired provider and run:
 
 ```bash
-python3 -m promo_lab run "I Married a Broken Soldier. He was a Duke-scripts.zip" \
+python3 -m promo_lab run "/path/to/local-screenplays-scripts.zip" \
   --provider groq --output output/runs/my-full-pack-run
 ```
 
@@ -30,6 +30,8 @@ python3 scripts/package_submission.py --run output/runs/full-pack-qwen
 ```
 
 The generator verifies the two-page limit before replacing the previous PDF. Inspect both rendered pages before submission. Page one explains LLM candidate retrieval, the internal simulated-feed survey, and epsilon-greedy selection with online training. Page two shows the feedback-loop diagram, saved-run evidence, an observed model error, limitations and AI tools used.
+
+The [public PDF](promo-lab-solution.pdf) keeps the aggregate results and omits private script excerpts and clip details. To rebuild that version, add `--public --output docs/promo-lab-solution.pdf` to the PDF command above.
 
 | Deliverable | Intended handling |
 | --- | --- |

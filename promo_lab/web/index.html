@@ -123,8 +123,24 @@
         <select id="source">
           <option value="pack">Supplied 50-episode pack · local</option>
           <option value="sample">Original demo · safe to share</option>
+          <option value="paste">Paste screenplay text</option>
           <option value="upload">Upload your screenplay files</option>
         </select>
+        <div id="paste-field" hidden>
+          <label class="field-label" for="screenplay-text"
+            >Screenplay text</label
+          >
+          <textarea
+            id="screenplay-text"
+            rows="7"
+            spellcheck="false"
+            aria-describedby="paste-hint"
+          ></textarea>
+          <p class="field-hint" id="paste-hint">
+            Paste the contents of one screenplay .txt file, including its
+            episode header and timestamps.
+          </p>
+        </div>
         <div id="upload-field" hidden>
           <label class="upload-zone" for="files"
             ><span>↑</span><strong>Choose .txt files or a .zip</strong
@@ -166,9 +182,9 @@
           confidential source material.
         </p>
         <label class="partial-option" id="public-input-option" hidden
-          ><input type="checkbox" id="public-input" /> These uploaded scripts
-          are public and non-confidential. NVIDIA's free endpoint must not
-          receive the Kuku pack.</label
+          ><input type="checkbox" id="public-input" /> These scripts are public
+          and non-confidential. NVIDIA's free endpoint must not receive the Kuku
+          pack.</label
         >
         <label class="partial-option"
           ><input type="checkbox" id="allow-partial" checked /> Keep completed

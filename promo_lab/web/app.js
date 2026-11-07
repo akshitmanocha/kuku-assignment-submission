@@ -129,9 +129,12 @@ function providerHint() {
     !state.status?.pack_available || !!restricted;
   if (restricted && $("#source").value === "pack")
     $("#source").value = "sample";
-  $("#upload-field").hidden = $("#source").value !== "upload";
+  const source = $("#source").value;
+  $("#upload-field").hidden = source !== "upload";
+  $("#paste-field").hidden = source !== "paste";
+  $("#screenplay-text").required = source === "paste";
   $("#public-input-option").hidden =
-    !restricted || $("#source").value !== "upload";
+    !restricted || (source !== "upload" && source !== "paste");
   if (restricted)
     $("#provider-hint").textContent =
       `${p.model} · public, non-confidential inputs only. NVIDIA's free endpoint logs inputs for improvement. Use the original demo; existing Qwen results remain in Run history.`;
@@ -493,7 +496,10 @@ function openDialog() {
 $("#new-run").onclick = openDialog;
 $("#close-dialog").onclick = () => $("#run-dialog").close();
 $("#provider").onchange = providerHint;
-$("#source").onchange = providerHint;
+$("#source").onchange = () => {
+  $("#public-input").checked = false;
+  providerHint();
+};
 $("#files").onchange = () =>
   ($("#file-summary").textContent = [...$("#files").files]
     .map((f) => f.name)
@@ -523,8 +529,9 @@ $("#run-form").onsubmit = async (event) => {
   button.disabled = true;
   error("");
   try {
+    const source = $("#source").value;
     const body = {
-      source: $("#source").value,
+      source: source === "paste" ? "upload" : source,
       provider: $("#provider").value,
       shortlist_percent: Number($("#shortlist-percent").value),
       allow_partial: $("#allow-partial").checked,
@@ -533,7 +540,13 @@ $("#run-form").onsubmit = async (event) => {
     const ep = $("#episode-number").value;
     if (ep) body.episode_ids = [`E${String(Number(ep)).padStart(3, "0")}`];
     if (body.source === "upload") {
-      const files = [...$("#files").files];
+      const pasted = $("#screenplay-text").value;
+      if (source === "paste" && !pasted.trim())
+        throw new Error("Paste screenplay text before starting the analysis.");
+      const files =
+        source === "paste"
+          ? [new File([pasted], "pasted-screenplay.txt")]
+          : [...$("#files").files];
       if (!files.length)
         throw new Error("Choose a .txt screenplay or .zip archive first.");
       if (files.reduce((n, f) => n + f.size, 0) > 15000000)
@@ -559,6 +572,8 @@ $("#run-form").onsubmit = async (event) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     });
+    if (source === "paste") $("#screenplay-text").value = "";
+    $("#public-input").checked = false;
     $("#run-dialog").close();
     pollJob(job_id);
   } catch (e) {
