@@ -1,4 +1,4 @@
-"""Render a two-page solution document from an actual saved run, never fake metrics."""
+"""Render the two-page solution from saved run artifacts."""
 
 from __future__ import annotations
 
@@ -6,13 +6,23 @@ import argparse
 import json
 from pathlib import Path
 import re
+from tempfile import NamedTemporaryFile
 from xml.sax.saxutils import escape
 
+from pypdf import PdfReader
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak
+from reportlab.platypus import (
+    Image,
+    PageBreak,
+    Paragraph,
+    SimpleDocTemplate,
+    Spacer,
+    Table,
+    TableStyle,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,15 +49,14 @@ def clean(text: str, maximum: int = 650) -> str:
 
 def build(run_dir: Path, output: Path) -> None:
     result = json.loads((run_dir / "result.json").read_text())
-    s, e = result["summary"], result["evaluation"]
-    ai = result["mode"] != "offline"
+    summary, evaluation = result["summary"], result["evaluation"]
     styles = getSampleStyleSheet()
     styles.add(
         ParagraphStyle(
             name="BodyLab",
             fontName="Helvetica",
-            fontSize=9,
-            leading=12.4,
+            fontSize=9.5,
+            leading=13.1,
             textColor=INK,
             spaceAfter=7,
         )
@@ -56,10 +65,10 @@ def build(run_dir: Path, output: Path) -> None:
         ParagraphStyle(
             name="SmallLab",
             fontName="Helvetica",
-            fontSize=8,
-            leading=10.8,
+            fontSize=8.5,
+            leading=11.3,
             textColor=MUTED,
-            spaceAfter=5,
+            spaceAfter=4,
         )
     )
     styles.add(
@@ -69,8 +78,8 @@ def build(run_dir: Path, output: Path) -> None:
             fontSize=11,
             leading=15,
             textColor=INK,
-            spaceBefore=10,
-            spaceAfter=6,
+            spaceBefore=8,
+            spaceAfter=5,
         )
     )
     styles.add(
@@ -80,7 +89,7 @@ def build(run_dir: Path, output: Path) -> None:
             fontSize=27,
             leading=32,
             textColor=INK,
-            spaceAfter=7,
+            spaceAfter=8,
         )
     )
     story = []
@@ -92,231 +101,186 @@ def build(run_dir: Path, output: Path) -> None:
         story.append(Paragraph(text, styles["HeadingLab"]))
 
     def rate(value):
-        return "not measured" if value is None else f"{100 * value:.1f}%"
+        return "unmeasured" if value is None else f"{100 * value:.1f}%"
 
-    def table(rows, widths):
-        t = Table(
-            [[p(clean(v), small=True) for v in row] for row in rows],
-            colWidths=widths,
-            hAlign="LEFT",
+    story.append(p("KUKU AI GENERALIST ASSIGNMENT / PROBLEM 1", small=True))
+    story.append(Paragraph("Promo Lab", styles["TitleLab"]))
+    story.append(
+        p(
+            "I chose Find the Promos because an editor can check every recommendation against the screenplay. The tool returns a ranked list of 20-60 second cuts with timestamps and reasons. The editor makes the final decision after reviewing the footage."
         )
-        t.setStyle(
-            TableStyle(
-                [
-                    ("BACKGROUND", (0, 0), (-1, 0), PAPER),
-                    ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                    ("LEFTPADDING", (0, 0), (-1, -1), 9),
-                    ("RIGHTPADDING", (0, 0), (-1, -1), 9),
-                    ("TOPPADDING", (0, 0), (-1, -1), 7),
-                    ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
-                    ("LINEBELOW", (0, 0), (-1, -1), 0.35, colors.HexColor("#dde2d5")),
-                ]
-            )
+    )
+    story.append(
+        p(
+            "<b>Assumptions.</b> Timestamps are relative to each episode. Dialogue, action and camera tracks can overlap. A promo may join up to three source segments in chronological order. The shortlist targets 1% of distinct valid cuts, subject to quality checks."
         )
-        return t
+    )
+    story.append(Spacer(1, 2))
+    story.append(
+        Image(
+            str(ROOT / "docs/images/approach-overview.png"),
+            width=175 * mm,
+            height=99 * mm,
+            kind="proportional",
+        )
+    )
 
-    story.append(p("PROBLEM 1 / FIND THE PROMOS", small=True))
-    story.append(Paragraph("Find the moment.", styles["TitleLab"]))
+    heading("The approach")
     story.append(
         p(
-            "<b>Promo Lab</b> turns timestamped screenplays into a ranked, source-grounded editorial shortlist. It recommends cuts; it does not generate video or claim proven ad performance."
-        )
-    )
-    heading("Why this problem; what I assumed")
-    story.append(
-        p(
-            "The supplied scripts make the task testable: an editor can inspect exact intervals and their evidence. I chose a narrow, rerunnable workflow over training an audience predictor without labels. Times are episode-relative. Camera, action and dialogue overlap; their durations cannot be added. Promos total 20-60 seconds. Assemblies are chronological, capped at three segments, and require human visual review."
-        )
-    )
-    heading("The working pipeline")
-    story.append(
-        p(
-            "<b>1. Parse and preserve.</b> Normalize field case, retain stable source IDs and hashes, and flag questionable speech timing. Reject malformed inputs instead of silently losing episodes."
+            "<b>1. Find and rank the cuts.</b> Parse dialogue and action into timestamped events. Search plausible cut boundaries and ask the LLM to propose additional intervals using event IDs. Code checks the source, duration, sequence and whether a cut interrupts dialogue. A second prompt sees only the selected dialogue and action. It scores the hook, clarity, stakes, progression, cliffhanger and cut quality from 0 to 3. Hook, clarity and cliffhanger must each reach 2. Group overlapping variants before shortlisting."
         )
     )
     story.append(
         p(
-            "<b>2. Search.</b> Enumerate dialogue/action boundaries within the duration limit. Generic AI mode requests up to three strongest-first proposals per episode, with a short previous-episode tail. Groq budget mode requests one within-episode proposal. Convert referenced event IDs to original timestamps; the model does not invent edit points."
+            "<b>2. Record reading feedback.</b> Place one random promo among six text stories. With consent, save a row for each promo exposure. X describes the promo and its placement. Y records what happened. A qualified response requires a continuation click, at least 15 active seconds and at least 75% of the continuation text seen. Interrupted outcomes can stay unknown."
         )
     )
     story.append(
         p(
-            "<b>3. Validate and critique.</b> Code checks bounds, duration, chronology and dialogue crossing either cut. A separate newcomer prompt sees only the selected dialogue/actions, without summaries or proposal rationale. It assesses hook, comprehension, stakes, progression, cliffhanger and cut quality on 0-3 anchors. One finalist per episode is critiqued to constrain free-tier usage."
+            "<b>3. Test the learning loop.</b> A separate simulator generates labeled responses under stated assumptions. Fit a success estimate per promo from successes and failures. After warm-up, select the estimated best candidate 80% of the time and explore randomly 20% of the time. Update daily, giving older feedback less weight. Compare with a separate random control and check prediction quality on held-out responses. This demonstrates how the loop runs under simulated preferences."
         )
     )
-    story.append(
-        p(
-            "<b>4. Rank transparently.</b> Equal-weight scores are editorial estimates, not probabilities. Hook, comprehension and cliffhanger must each reach two. Group temporal variants at 0.5 IoU, then return up to the top 1% of distinct valid candidates; do not pad a failed quota. Only successfully AI-assessed cuts enter an AI shortlist."
-        )
-    )
-    heading("What the editor gets")
-    story.append(
-        p(
-            "Upload ZIP/TXT inputs or use the CLI. Each result includes ordered episode timestamps, duration, source hook/ending, unanswered question, rationale, checks and concerns. Inspect overlapping source tracks, every episode's coverage, actual failures and earlier runs. Export CSV or a private bundle of raw candidates, model calls, evaluation, source hashes and checksums."
-        )
-    )
-    heading("A short recommendation from this run")
-    selected = [c for c in result["candidates"] if c["shortlisted"]]
-    if selected:
-        c = min(selected, key=lambda candidate: candidate["duration_seconds"])
-        spans = "; ".join(
-            f"EP {x['episode_number']} {x['start']}-{x['end']}" for x in c["segments"]
-        )
-        story.append(
-            p(
-                f"<b>{clean(c['title'], 110)}</b><br/>{clean(spans)} | {c['duration_seconds']:.2f}s | rank {c.get('rank', '-')} | {c['score']}/100 editorial estimate"
-            )
-        )
-        story.append(
-            p(
-                f"<b>Hook:</b> {clean(c['assessment']['hook'], 180)}<br/><b>Ending:</b> {clean(c['assessment']['cliffhanger'], 180)}",
-                small=True,
-            )
-        )
-    else:
-        story.append(
-            p(
-                "No candidates passed the current gates. The run records abstention rather than inventing a recommendation."
-            )
-        )
 
     story.append(PageBreak())
-    story.append(p("EVIDENCE / LIMITS / NEXT STEPS", small=True))
-    story.append(Paragraph("Inspect the evidence.", styles["TitleLab"]))
-    heading("Measured full-input execution")
+    story.append(p("FULL-PACK RUN / EVALUATION / SCALING", small=True))
+    story.append(Paragraph("Results and tradeoffs", styles["TitleLab"]))
+    heading("What I checked")
     usage = [(entry.get("response") or {}).get("usage", {}) for entry in result["model_journal"]]
-    tokens = sum(u.get("total_tokens", 0) for u in usage)
-    fresh = sum(not entry.get("cached", False) for entry in result["model_journal"])
+    tokens = sum(item.get("total_tokens", 0) for item in usage)
+    uncached = sum(not entry.get("cached", False) for entry in result["model_journal"])
     rows = [
-        ["Measure", "Observed result"],
+        ["Check", "Observed result"],
         [
             "Input coverage",
-            f"{s['episodes']} episodes; {s['events']:,} timestamped events; {s['source_minutes']} scripted minutes",
+            f"{summary['episodes']} episodes and {summary['events']:,} timestamped events",
         ],
         [
             "Candidate search",
-            f"{s['candidates']:,} cuts; {s['valid_candidates']:,} source-valid; {s['distinct_candidates']:,} distinct",
+            f"{summary['candidates']:,} generated, {summary['valid_candidates']:,} source-valid, {summary['distinct_candidates']:,} distinct",
         ],
         [
-            "Final shortlist",
-            f"{s['shortlisted']} selected; {s['ai_assessed']} AI-assessed; target {s['target_shortlist']}",
+            "Shortlist",
+            f"{summary['shortlisted']} selected from {summary['ai_assessed']} AI-assessed candidates"
+            if result["mode"] != "offline"
+            else f"{summary['shortlisted']} selected by the offline rules",
         ],
-        ["Provider", result["model"] or "Offline rules; no model called"],
+        ["Inference", result["model"] or "Offline rules"],
         [
-            "Logical model use",
-            f"{s['ai_calls']} calls ({fresh} uncached); {tokens:,} response-reported tokens incl. cached responses",
+            "Model usage",
+            f"{summary['ai_calls']} logical calls ({uncached} uncached) and {tokens:,} reported tokens, including cached responses",
         ],
         [
             "Fixed-window baseline",
-            f"n={e['baseline']['count']}; validity {rate(e['baseline']['valid_rate'])}; dialogue cuts {rate(e['baseline']['dialogue_cut_rate'])}",
+            f"n={evaluation['baseline']['count']}, valid {rate(evaluation['baseline']['valid_rate'])}, dialogue cuts {rate(evaluation['baseline']['dialogue_cut_rate'])}",
         ],
         [
             "Selected cuts",
-            f"n={e['shortlist']['count']}; validity {rate(e['shortlist']['valid_rate'])}; dialogue cuts {rate(e['shortlist']['dialogue_cut_rate'])}",
+            f"n={evaluation['shortlist']['count']}, valid {rate(evaluation['shortlist']['valid_rate'])}, dialogue cuts {rate(evaluation['shortlist']['dialogue_cut_rate'])}",
         ],
     ]
-    if ai:
-        rows.insert(
-            5,
+    evidence = Table(
+        [[p(clean(value), small=True) for value in row] for row in rows],
+        colWidths=[46 * mm, 129 * mm],
+        hAlign="LEFT",
+    )
+    evidence.setStyle(
+        TableStyle(
             [
-                "AI episode coverage",
-                f"{s.get('ai_assessed_episodes', s['ai_assessed'])} / {s['episodes']} episodes; {'PARTIAL - provider unavailable' if result.get('partial') else 'no provider failure'}",
-            ],
+                ("BACKGROUND", (0, 0), (-1, 0), PAPER),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("LEFTPADDING", (0, 0), (-1, -1), 8),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 8),
+                ("TOPPADDING", (0, 0), (-1, -1), 5),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+                ("LINEBELOW", (0, 0), (-1, -1), 0.35, colors.HexColor("#dde2d5")),
+            ]
         )
-    story.append(table(rows, [52 * mm, 128 * mm]))
+    )
+    story.append(evidence)
     story.append(Spacer(1, 6))
     story.append(
         p(
-            "Baseline: roughly 30 seconds from each episode's first spoken line, without boundary refinement. The filtered shortlist and baseline are different samples. These rates verify structural enforcement, not improved audience appeal. Human acceptance, independent opportunity recall and continuation remain unmeasured.",
-            small=True,
+            "The audit rechecks source intervals and artifact hashes. The baseline takes about 30 seconds from each episode's first spoken line without adjusting the cut. Comparing that baseline with the filtered shortlist checks boundary enforcement. Measuring audience preference would require a separate controlled study."
         )
     )
-    if (
-        ai
-        and not result.get("partial")
-        and s.get("ai_assessed_episodes", s["ai_assessed"]) < s["episodes"]
-    ):
-        story.append(
-            p(
-                "All episode proposal/critique requests returned. Critiques failing source-evidence or candidate-ID validation were excluded, explaining the lower usable-assessment count.",
-                small=True,
-            )
-        )
     if result.get("partial"):
         story.append(
             p(
-                "Provider quota interrupted AI coverage. All source episodes were processed, but unassessed cuts were excluded from the AI shortlist. The failure and per-episode coverage are exported; cached calls support resuming later.",
+                "Provider availability limited AI coverage. The exports identify affected episodes and candidates.",
                 small=True,
             )
         )
-    heading("What failed; what AI got wrong")
-    # Find an actual proposal rejected by technical validation, not an invented anecdote.
-    bad_ai = next(
+    elif (
+        result["mode"] != "offline"
+        and summary.get("ai_assessed_episodes", summary["ai_assessed"]) < summary["episodes"]
+    ):
+        story.append(
+            p(
+                "Some critiques failed source-evidence or candidate-ID validation and were excluded from the shortlist.",
+                small=True,
+            )
+        )
+
+    shortlist = [candidate for candidate in result["candidates"] if candidate["shortlisted"]]
+    if shortlist:
+        sample = min(shortlist, key=lambda candidate: candidate["duration_seconds"])
+        spans = ", ".join(
+            f"EP {item['episode_number']} {item['start']}-{item['end']}"
+            for item in sample["segments"]
+        )
+        heading("An example recommendation")
+        story.append(
+            p(
+                f"<b>{clean(sample['title'], 110)}</b> | {clean(spans)} | {sample['duration_seconds']:.2f}s | rank {sample.get('rank', '-')}<br/><b>Hook</b> {clean(sample['assessment']['hook'], 150)}<br/><b>Ending</b> {clean(sample['assessment']['cliffhanger'], 150)}",
+                small=True,
+            )
+        )
+
+    heading("Where it fails")
+    invalid_proposal = next(
         (
-            c
-            for c in result["candidates"]
-            if c["origin"] == "llm_proposal" and not c["validation"]["valid"]
+            candidate
+            for candidate in result["candidates"]
+            if candidate["origin"] == "llm_proposal" and not candidate["validation"]["valid"]
         ),
         None,
     )
-    if bad_ai:
-        spans = "; ".join(
-            f"EP {x['episode_number']} {x['start']}-{x['end']}" for x in bad_ai["segments"]
+    if invalid_proposal:
+        spans = ", ".join(
+            f"EP {item['episode_number']} {item['start']}-{item['end']}"
+            for item in invalid_proposal["segments"]
         )
+        reasons = ". ".join(invalid_proposal["validation"]["errors"])
         story.append(
             p(
-                f"<b>Observed AI error:</b> proposal {clean(bad_ai['id'])} ({clean(spans)}) failed: {clean('; '.join(bad_ai['validation']['errors']), 200)}. Code retained the raw proposal but excluded it from selection. Source references alone do not make a proposed cut valid."
+                f"<b>Observed AI error.</b> The model proposed a {invalid_proposal['duration_seconds']:.2f}-second cut ({clean(spans)}). The source check rejected it. {clean(reasons, 180)}. The original response remains in the raw outputs."
             )
         )
     elif result["rejected_proposals"]:
-        bad = result["rejected_proposals"][0]
+        reason = clean(result["rejected_proposals"][0]["reason"], 220)
         story.append(
             p(
-                f"<b>Observed AI error:</b> a proposal was rejected because {clean(bad['reason'], 250)}. The original response and rejection are retained for inspection."
-            )
-        )
-    elif ai:
-        story.append(
-            p(
-                "No malformed AI proposal was observed in this run. That does not establish semantic quality; I would not invent a model-error anecdote. The raw assessments should be inspected for context assumptions and overconfident cliffhanger judgments."
-            )
-        )
-    else:
-        story.append(
-            p(
-                "No inference model was called in this offline run, so there is no observed editorial-model error to report. The rules can reward a rhetorical question even when its answer is already present. Implementation AI also needed correction when a first source-header regex placed the colon outside the bold marker."
+                f"<b>Observed AI error.</b> One proposal failed validation for this reason: {reason}. The raw output retains the original response."
             )
         )
     story.append(
         p(
-            "A question can mean confusion rather than suspense; source role labels can reveal information a viewer never hears. Text cannot establish acting, frame-accurate timing, visual joins or conversion. One critique per episode may miss a better cut. Temporal grouping can leave semantic duplicates. Keep a human editor in the final decision."
+            "A model can mistake missing context for suspense or infer details from speaker labels. Reviewing one finalist per episode can miss better cuts. Acting, visual joins and frame-accurate timing need a footage review."
         )
     )
-    disagreements = [
-        c for c in selected if c.get("rules_assessment", {}).get("scores", {}).get("hook", 3) < 2
-    ]
-    if disagreements:
-        story.append(
-            p(
-                "Some selected openings scored strongly with AI despite weak rule-based hook cues. The interface flags this disagreement; high scores are not a substitute for reviewing the first three seconds.",
-                small=True,
-            )
-        )
-    heading("Rerun, feedback, and future learning")
+
+    heading("How it would scale")
     story.append(
         p(
-            "README run steps support new uploads and swappable server-side providers. Cache by content, prompt and model; process episodes independently. Quadratic boundary search needs pruning for larger inputs. Tests and isolated browser checks support reruns; logged free-tier usage does not establish production cost."
+            "Process episodes in parallel and cache by source, prompt and model. Prune near-duplicate cuts before spending tokens on critique. Track uncached token use, cost and episode coverage per show. For audience learning, collect feedback on real footage, evaluate later data, and compare the updated policy with a randomized control before rollout."
         )
     )
+
+    heading("AI tools used")
     story.append(
         p(
-            "Implemented: a consent-based randomized text feed logs real reading/continuation, with unknown outcomes preserved. A separate, labeled synthetic demo fits candidate success estimates, holds out validation data and updates epsilon-greedy daily against random control. It tests mechanics under assumed appeal, not customer lift. Real video labels, embedding-based training, production rollout and contrastive learning remain future work."
-        )
-    )
-    heading("Tools and confidentiality")
-    story.append(
-        p(
-            f"Codex assisted code, tests and drafting; {clean(result['model'] or 'no inference provider')} supplied this run's editorial inference. Applicant review and understanding remain essential. Confidential scripts, raw outputs, caches and credentials are Git-ignored; submit private materials only through the authorized assignment channel. This PDF records run {clean(run_dir.name)}.",
+            f"Codex assisted implementation, tests and writing. The reported run used {clean(result['model'] or 'offline rules')}. OpenRouter Nemotron was checked on the original public example. ImageGen created the approach diagram. Saved run {clean(run_dir.name)}.",
             small=True,
         )
     )
@@ -334,28 +298,29 @@ def build(run_dir: Path, output: Path) -> None:
         )
         canvas.drawRightString(width - 15 * mm, 12 * mm, f"{doc.page} / 2")
 
-    doc = SimpleDocTemplate(
-        str(output),
-        pagesize=A4,
-        rightMargin=15 * mm,
-        leftMargin=15 * mm,
-        topMargin=14 * mm,
-        bottomMargin=20 * mm,
-        title="Promo Lab - Solution",
-        author="Assignment applicant",
-        pageCompression=1,
-    )
-    doc.build(story, onFirstPage=decorate, onLaterPages=decorate)
+    with NamedTemporaryFile(
+        dir=output.parent, prefix=f".{output.stem}-", suffix=".pdf", delete=False
+    ) as temporary:
+        draft = Path(temporary.name)
     try:
-        from pypdf import PdfReader
-
-        pages = len(PdfReader(output).pages)
+        doc = SimpleDocTemplate(
+            str(draft),
+            pagesize=A4,
+            rightMargin=15 * mm,
+            leftMargin=15 * mm,
+            topMargin=14 * mm,
+            bottomMargin=20 * mm,
+            title="Promo Lab - Solution",
+            author="Assignment applicant",
+            pageCompression=1,
+        )
+        doc.build(story, onFirstPage=decorate, onLaterPages=decorate)
+        pages = len(PdfReader(draft).pages)
         if pages != 2:
-            raise ValueError(
-                f"Expected exactly two pages, generated {pages}; revise layout before submission"
-            )
-    except ImportError:
-        pass
+            raise ValueError(f"Expected exactly two pages, generated {pages}")
+        draft.replace(output)
+    finally:
+        draft.unlink(missing_ok=True)
     print(f"Created {output.resolve()}")
 
 

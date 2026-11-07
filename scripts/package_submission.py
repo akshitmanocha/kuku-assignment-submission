@@ -23,6 +23,8 @@ def package(run: Path, pdf: Path):
             "ML_ARCHITECTURE.md",
             "CONTRIBUTING.md",
             "Makefile",
+            "Dockerfile",
+            ".dockerignore",
             "package.json",
             "package-lock.json",
             ".editorconfig",

@@ -29,7 +29,7 @@ python3 scripts/build_solution_pdf.py --run output/runs/full-pack-qwen
 python3 scripts/package_submission.py --run output/runs/full-pack-qwen
 ```
 
-The generator verifies the page count when pypdf is installed. Inspect the rendered PDF before submission; the generator alone cannot certify visual layout. The document includes actual saved-run evidence, an observed model error, scale limitations and the current feedback/simulation boundary.
+The generator verifies the two-page limit before replacing the previous PDF. Inspect both rendered pages before submission. Page one explains the approach and includes the approved overview diagram. Page two covers the saved-run evidence, an observed model error, limitations, scaling and AI tools used.
 
 | Deliverable | Intended handling |
 | --- | --- |

@@ -45,6 +45,12 @@ def main() -> None:
     sub = parser.add_subparsers(dest="command", required=True)
     serve = sub.add_parser("serve", help="Launch the local browser app")
     serve.add_argument("--port", type=int, default=8765)
+    serve.add_argument(
+        "--host",
+        choices=["127.0.0.1", "0.0.0.0"],
+        default="127.0.0.1",
+        help="Listen on loopback by default. Docker uses 0.0.0.0 inside the container.",
+    )
     run = sub.add_parser("run", help="Process a ZIP, script, or folder")
     run.add_argument("input", type=Path)
     run.add_argument("--output", type=Path, default=ROOT / "output" / "runs" / "cli")
@@ -69,7 +75,7 @@ def main() -> None:
         if args.command == "serve":
             from .server import serve_app
 
-            serve_app(ROOT, args.port)
+            serve_app(ROOT, args.port, host=args.host)
         else:
             episodes = load_path(args.input)
 

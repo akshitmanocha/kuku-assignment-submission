@@ -169,7 +169,7 @@ class Store:
         return job_id
 
 
-def serve_app(root: Path, port: int) -> None:
+def serve_app(root: Path, port: int, *, host: str = "127.0.0.1") -> None:
     store = Store(root)
     web_root = Path(__file__).parent / "web"
 
@@ -396,9 +396,9 @@ def serve_app(root: Path, port: int) -> None:
             except (ValueError, TypeError, OSError) as exc:
                 self.json({"error": str(exc)}, 400)
 
-    server = ThreadingHTTPServer(("127.0.0.1", port), Handler)
+    server = ThreadingHTTPServer((host, port), Handler)
     print(f"Promo Lab → http://127.0.0.1:{port}", flush=True)
-    print("Local-only. Confidential inputs and raw outputs are not published.", flush=True)
+    print(f"Listening on {host}:{port}", flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

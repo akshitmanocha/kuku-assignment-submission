@@ -8,6 +8,7 @@ Local verification completed on **7 November 2026**. These checks concern the wo
 | Ruff lint and formatting | Passed for application, scripts and tests |
 | Frontend syntax and Prettier | Passed for JavaScript, HTML and CSS |
 | Isolated HTTP checks | Passed: private-file denial, host/origin checks, malformed inputs, fresh upload, polling and exports |
+| Docker launch | Image built and passed the HTTP checks as a non-root user. Replacing the container preserved analyses and a test study in the same volume. |
 | Editorial browser flow | Passed: source inspection, filters, coverage, quality, history, new analyses, upload, download and mobile layout |
 | Reading browser flow | Passed: consent, randomized cards, reload censoring, continuation, offline retry, test export exclusion, shared-device reset and deletion |
 | Synthetic browser flow | Passed for all three scenarios, provenance, model snapshots, downloads, persistence, mobile layout and real-data isolation |

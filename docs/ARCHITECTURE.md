@@ -2,19 +2,7 @@
 
 There are three product stages. The first is implemented, the second collects real reading feedback, and the third is demonstrated with synthetic feedback. Production deployment and a real-audience model are later work.
 
-```mermaid
-flowchart TD
-    A[Scripts with episode-relative timestamps] --> B[Parse source events and generate possible cuts]
-    B --> C[Optional LLM proposals and candidate-only critique]
-    C --> D[Validate and rank source-grounded 20–60-second promos]
-    D --> E[Randomized text-card feed with real participants]
-    E --> F[Real interaction records and training exports]
-    D --> G[Separate explicitly synthetic response generator]
-    G --> H[Fit candidate response estimates from random cold-start feedback]
-    H --> I[Compare epsilon-greedy selection with uniform control]
-    I --> J[Daily synthetic updates with discounted history]
-    J --> H
-```
+![The three stages of Promo Lab, from script analysis to real reading feedback and a synthetic learning demonstration](images/approach-overview.png)
 
 ## 1. Editorial discovery
 
@@ -34,6 +22,8 @@ The main reading target is an actual continuation click followed by at least 15 
 
 ## 3. Synthetic learning demonstration
 
+![The synthetic feedback loop with random cold start, 80/20 selection, daily updates and random control](images/feedback-loop.png)
+
 `simulations.py` reads the study's candidate snapshot without copying or modifying participant responses. It assumes candidate appeal and generates consistent synthetic X/Y rows in a separate directory. Every export is marked synthetic and excluded from real training by provenance flags.
 
 The current model is candidate-level Beta-Bernoulli: start with Beta(1,1), add success/failure counts and predict their posterior mean. Historical excess counts decay by 0.9 daily. Candidate identity is its only predictor; it does not consume text embeddings or the recorded context fields. Validation and random-control feedback never fit the model.
@@ -42,8 +32,12 @@ Uniform cold-start traffic supplies the initial data. Online simulated explorati
 
 ## Application and storage
 
-The frontend is vanilla HTML/CSS/JavaScript; `server.py` provides a stdlib loopback HTTP API and a single background analysis worker. Model keys are server-side. Real events, synthetic rows and editorial outputs are separate stores. The server has local host/origin checks and a restricted static-file allowlist. It is not an authenticated multi-user hosting service.
+The frontend is vanilla HTML/CSS/JavaScript; `server.py` provides a local HTTP API and a single background analysis worker. The Python launch binds to loopback by default. The Docker launch binds inside the container and publishes the port on host loopback. Model keys are server-side. Real events, synthetic rows and editorial outputs are separate stores. The server has local host/origin checks and a restricted static-file allowlist. It is not an authenticated multi-user hosting service.
 
 ## Future production loop
 
 After enough mature real outcomes exist: fit an audience model, evaluate on later held-out participants/content, introduce a controlled customer pilot, collect new feedback, retrain in batches and promote only versions passing evaluation and monitored rollout. A text encoder plus content/context features could generalize to unseen promos. Model registry, secure hosting, rollback, data access and scheduling are not currently implemented. Contrastive learning and encoder adaptation are explicitly future experiments. See the [reference ML specification](../ML_ARCHITECTURE.md).
+
+## Workbench preview
+
+![The candidate inspector showing the original public demo](images/workbench.png)

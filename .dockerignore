@@ -1,0 +1,13 @@
+# Allow only the runtime files and the original public screenplay.
+**
+!promo_lab/
+promo_lab/**
+!promo_lab/*.py
+!promo_lab/web/
+promo_lab/web/**
+!promo_lab/web/*.html
+!promo_lab/web/*.css
+!promo_lab/web/*.js
+!promo_lab/examples/
+promo_lab/examples/**
+!promo_lab/examples/episode-001.txt
