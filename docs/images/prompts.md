@@ -47,4 +47,3 @@ Footer text verbatim: "Real feedback is collected separately. Synthetic results 
 Second footer line verbatim: "Control and validation data do not train the model."
 Keep labels accurate and readable without text crowding; no invented metrics or guarantee of improvement. Show that the loop is a working simulation, not an already deployed customer system.
 ```
-
